@@ -19,7 +19,7 @@ function d = ddlm(z,rho,nnb,D)
 switch D
     case 1
         ld = 1;
-        PQd = asin(sqrt((1-rho(z==0,1)^2)/2))/pi;
+        PQd = asin(sqrt((1-rho(z==0,1)^2)/2))/pi; % correct for z is zero.
     case 2
         ld = 2;
         PQd = asin(sqrt((1-rho(z==0,1)^2)/2))/pi*asin(sqrt((1-rho(z==0,2)^2)/2))/pi;
@@ -34,14 +34,16 @@ for i=1:nz
     Q=1;
     zi=z(i);
     for l=1:ld
+        % loop in all dimensions
         alpha=asin(sqrt((1-rho(i,l)^2)/2));
         da=alpha/1000;
         h=sqrt((1-rho(i,l))/(1+rho(i,l)));
         zplus=max(zi,0);
         zall=0:da:alpha;
-        f=exp(-1/2*h^2*zi^2./(sin(zall)).^2);
+        f=exp(-1/2*h^2*zi^2./(sin(zall)).^2); % third part in equation (2) in manuscript
         %I=integral(@(y) 1./(-2.*log(y).*sqrt(-2.*log(y)-hz^2)), 0, y0);
         if nnb(i,l)==1
+            % Whether the neighbor in one dimension includes 1 or 2 voxels
             Q=Q*(1-erfc(h*zplus/sqrt(2))/2);
         end
         if nnb(i,l)==2
