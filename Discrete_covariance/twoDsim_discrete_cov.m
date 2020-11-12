@@ -28,6 +28,8 @@ end
 sigma = 1;
 niter = 1e6;
 
+save('inverse_rho_discrete.mat', 'invrho')
+
 %% Simulate the local maxima from the theoretical multivariate gaussian distribution
 %tic
 %rho = discrete_covariance(invrho(99), D); % inverse of rho = 0.99, which should be the standard deviation 
@@ -35,7 +37,7 @@ niter = 1e6;
 %toc
 
 %% After this find rho corresponding to specific standard deviation
-stddev_fwhm = 5.1;
+stddev_fwhm = 5;
 [M, I] = min(abs(invrho-stddev_fwhm));
 rho_disc = rho(I);
 %rho_disc = 0.01;
@@ -94,7 +96,7 @@ qnormalize=q./(sum(q)*dz);
 
 %% Check with Sam's new field generation code
 locmaxZ2 = [];
-nsim = 1000;
+nsim = 10000;
 dim = [50 50];
 f_new = zeros([dim(1:2),nsim]);
 cut = 1;
@@ -133,14 +135,16 @@ for nn = 1:nsim
 end
 
 %% Get the smoothed eCDF of the simulated data
-pval_dist = pval_lookup(rho_disc, z, D);
-%pval_dist_pre = 1-interp2(X,Y,matcdf,z,rho_disc);
+pval_dist = pval_lookup(rho_disc, z, D); % through the look-up table
+
+% rho_vec = discrete_covariance(rho_disc, D);
+% locmaxZ = simulateLocMax_Discrete(D,rho_vec,sigma,1e7);
+% [empf, empz] = ecdf(locmaxZ);
+% empz = empz(2:end); empf = empf(2:end);   %remove non-unique point
+% pval_dist = 1-interp1(empz,empf,z); % without lookup table
 
 % comparison of the look-up table method and simulated field method
 figure();
-%[empf, empz] = ecdf(locmaxZ2);
-%empz = empz(2:end); empf = empf(2:end);   %remove non-unique point
-%pval_field = 1-interp1(empz,empf,z);
 [ksf, ksz] = ksdensity(locmaxZ2, z);
 pval_ref = 1-cumsum(ksf)*dz;
 
@@ -208,3 +212,94 @@ title(['$\rho$ = ' num2str(0)], 'Interpreter','latex')
 ax = gca;
 set(gca,'FontSize', 18)
 axis square
+
+%% Comparing with continuous covariance function
+rho_vec = discrete_covariance(invrho(ceil(100*rho_disc)), D);
+locmaxZ = simulateLocMax_Discrete(D,rho_vec,sigma,1e7);
+[empf, empz] = ecdf(locmaxZ);
+empz = empz(2:end); empf = empf(2:end);   %remove non-unique point
+pval_dist = 1-interp1(empz,empf,z); % without lookup table
+
+rho_cont = round(exp(-1/2*1/(2*stddev_fwhm^2)),2); % continuous rho
+locmaxZ3 = simulateLocMax(D,rho_cont,sigma,1e7); % continuous covariance function
+[empf3, empz3] = ecdf(locmaxZ3);
+empz3 = empz3(2:end); empf3 = empf3(2:end);   %remove non-unique point
+pval_dist2 = 1-interp1(empz3,empf3,z);
+
+nondiag = 1;
+locmaxZ4 = simulateLocMax(D,rho_cont,sigma,1e7,nondiag); % continuous covariance function
+[empf4, empz4] = ecdf(locmaxZ4);
+empz4 = empz4(2:end); empf4 = empf4(2:end);   %remove non-unique point
+pval_dist3 = 1-interp1(empz4,empf4,z);
+
+% comparison of the look-up table method and simulated field method
+figure();
+[ksf, ksz] = ksdensity(locmaxZ2, z);
+pval_ref = 1-cumsum(ksf)*dz;
+
+plot(pval_ref,pval_dist,'LineWidth', 2);
+xlim([0 0.05])
+ylim([0 0.05])
+hold on
+plot(pval_ref,pval_dist2,'LineWidth', 2);
+hold on
+plot(pval_ref,pval_dist3,'LineWidth', 2);
+hold on
+pval_cont = 1-cumsum(qcont).*dz;
+line(pval_ref,pval_cont, 'Color','r', 'LineWidth', 2);
+hold on
+pval_disc = 1-cumsum(qnormalize).*dz;
+line(pval_ref,pval_disc, 'Color', 'green', 'LineWidth', 2);
+hline = refline(1,0);
+set(hline,'LineStyle',':');
+set(hline,'Color','black');
+set(hline,'LineWidth', 2);
+[hleg, hobj] = legend('Discrete covaraince function','Continuous covariance function',...
+        'continuous covariance function nondiag','Theoretical continuous',...
+        'Theoretical discrete', '45 degree line', 'Location','northwest');
+set(hleg,'Location','northwest','FontSize',7);
+title(['$\rho$ = ' num2str(rho_disc)], 'Interpreter','latex')
+ax = gca;
+set(gca,'FontSize', 18)
+axis square
+
+%% Using the empirical covariance function
+% tic
+% locmaxZ =[];
+% for i = 1:1e3
+% rho_vec = discrete_covariance(invrho(ceil(100*rho_disc)), D);
+% locmaxZ_new = simulateLocMax_Discrete(D,rho_vec,sigma,1e4);
+% locmaxZ = [locmaxZ, locmaxZ_new];
+% end
+% toc
+locmaxZ = simulateLocMax_Discrete_Stationary(D, sigma, 1e8);
+[empf, empz] = ecdf(locmaxZ);
+empz = empz(2:end); empf = empf(2:end);   %remove non-unique point
+pval_dist = 1-interp1(empz,empf,z);
+
+cov1 = empiricalCov(D,f_new);
+
+% Make the covariance matrix spd
+[V,DD] = eig(cov1);
+DD = max(10e-10, DD);
+sigma2 = V*DD*V';
+
+locmaxZ3 = simulateLocMax_Discrete_Stationary(D, sigma2, 1e8);
+[empf3, empz3] = ecdf(locmaxZ3);
+empz3 = empz3(2:end); empf3 = empf3(2:end);   %remove non-unique point
+pval_dist2 = 1-interp1(empz3,empf3,z);
+
+figure();
+[ksf, ksz] = ksdensity(locmaxZ2, z);
+pval_ref = 1-cumsum(ksf)*dz;
+
+plot(pval_ref,pval_dist,'LineWidth', 2);
+xlim([0 0.05])
+ylim([0 0.05])
+hold on
+plot(pval_ref,pval_dist2,'LineWidth', 2);
+hline = refline(1,0);
+set(hline,'LineStyle',':');
+set(hline,'Color','black');
+set(hline,'LineWidth', 2);
+legend('Theoretical covariance','empirical covariance', '45 degree line', 'Location','northwest');
