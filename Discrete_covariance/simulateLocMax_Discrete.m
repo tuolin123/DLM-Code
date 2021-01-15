@@ -1,4 +1,4 @@
-function locmax = simulateLocMax_Discrete(D, rho, var, niters, nondiag)
+function locmax = simulateLocMax_Discrete(D, rho, var, niters, nondiag, nsubj)
 % simulateLocMax(D, rho, var, niters) simulate the local maxima in an
 % isotropic field through theoretical distribution of multivariate
 % gaussian distribution.
@@ -6,7 +6,7 @@ function locmax = simulateLocMax_Discrete(D, rho, var, niters, nondiag)
 % ARGUMENTS
 % D             the dimension of the isotropic field.
 % rho           spatial correlation between two voxels, a vector with all
-% pairs in the neighborhood.
+% pairs in the neighborhood generated from discrete_covariance.
 % var           variance of the field.
 % niters        iteration times to generate the local maxima.
 % nsubj         subject number used in multivariate t-statistics
@@ -18,13 +18,24 @@ function locmax = simulateLocMax_Discrete(D, rho, var, niters, nondiag)
 % EXAMPLES
 % D = 1;
 % var = 1;
-% rho = 0.8;
+% rho = discrete_covariance(1.3, D);
 % niters = 10000;
 % simulateLocMax(D, rho, var, niters)
 %
 if nargin == 4
+    I_tstat = 0; % whether we use t-statistics
     nondiag = 0;
 end
+
+if nargin == 5
+    I_tstat = 0;
+    nsubj = 1000;
+end
+
+if nargin == 6
+    I_tstat = 1;
+end
+
 
 locmax = zeros(1,niters);
 k = 1;  % update the count of local maxima.
@@ -78,20 +89,37 @@ switch D
         diagind = sort([midpt-3.^(0:(D-1)), midpt+3.^(0:(D-1)), midpt]);
 end
 
-% using multivariate gaussian distribution
-R = mvnrnd(zeros(1,dimMat), sigma, niters);
-if nondiag == 0
-    for iter = 1:niters
-        if max(R(iter,:)) == R(iter,midpt)
-            locmax(k) = R(iter,midpt);
-            k = k + 1;
+if I_tstat == 0
+    % using multivariate gaussian distribution
+    R = mvnrnd(zeros(1,dimMat), sigma, niters);
+    if nondiag == 0
+        for iter = 1:niters
+            if max(R(iter,:)) == R(iter,midpt)
+                locmax(k) = R(iter,midpt);
+                k = k + 1;
+            end
+        end
+    elseif nondiag == 1
+        for iter = 1:niters
+            if max(R(iter,diagind)) == R(iter,midpt)
+                locmax(k) = R(iter,midpt);
+                k = k + 1;
+            end
         end
     end
-elseif nondiag == 1
+else
+    % using t distribution
+    R = (mvnrnd(zeros(1,dimMat), sigma, niters*nsubj))';
+    R = reshape(R,[dimMat,niters,nsubj]);
+    Rtstat = mvtstat(R,[dimMat,niters]);
     for iter = 1:niters
-        if max(R(iter,diagind)) == R(iter,midpt)
-            locmax(k) = R(iter,midpt);
-            k = k + 1;
+        %R = (mvnrnd(zeros(1,dimMat), sigma, nsubj))';
+        %Rtstat = mvtstat(R,[dimMat,1]);
+        if Rtstat(midpt,iter) == max(Rtstat(:,iter))
+        %if Rtstat(midpt) == max(Rtstat)
+            locmax(k) = max(Rtstat(:,iter));
+            %locmax(k) = max(Rtstat);
+            k = k+1;
         end
     end
 end
@@ -99,16 +127,4 @@ end
 
 locmax = locmax(1:(k-1));
 
-% using t-statistics
-%{
-R = mvnrnd(zeros(1,dimMat), Sigma, niters*nsubj);
-for iter = 1:niters
-    Rtstat = mvtstat(R((nsubj*(iter-1) + 1): nsubj*iter, :)');
-    if Rtstat(midpt) == max(Rtstat)
-        locmax(k) = max(Rtstat);
-        k = k+1;
-    end
-end
-locmax = locmax(1:(k-1));
-%}
 end
