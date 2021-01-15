@@ -2,19 +2,29 @@
 % local maxima in a 2D gaussian random field by simulation from the 
 % theoretical multivariate gaussian distribution.
 
-stddev_fwhm = 0.23;
-rho = round(exp(-1/2*1/(2*stddev_fwhm^2)),2);
-%rho = exp(-1/2*1/(2*stddev^2));
+load('inverse_rho_discrete.mat')
+rho_disc = 0.99;
+stddev_fwhm = invrho(rho_disc*100);
+%rho = round(exp(-1/2*1/(2*stddev_fwhm^2)),2);
+drho = 0.01;
+rho = drho:drho:(1-drho);
 D = 2;
 sigma = 1;
-niter = 1e6;
-nu = 20;
+niter = 1e5;
+nu = 200;
 nondiag = 0;
 
 %% Simulate the local maxima from the theoretical multivariate gaussian distribution
 tic
-locmaxZ = simulateLocMax(D,rho,sigma,niter,nondiag,nu);
+%locmaxZ = simulateLocMax(D,rho,sigma,niter,nondiag,nu);
+rho_long = discrete_covariance(stddev_fwhm, D);
+locmaxZ1 = [];
+for j = 1:100
+   locmaxZ = simulateLocMax_Discrete(D,rho_long,sigma,niter,nondiag,nu);
+   locmaxZ1 = [locmaxZ locmaxZ1];
+end
 toc
+
 %% %% Density of local maxima(continuous case)
 kappa   = 1; % theoretical kappa
 density = peakHeightDensity( 2, kappa );
@@ -28,12 +38,12 @@ drho=0:ddrho:0.999;
 nrho=length(drho);
 p=zeros(nz,nrho);
 nnb=ones(nz,3)*2;
-q=ddlm(z,ones(nz,3)*rho,nnb,2);
+q=ddlm(z,ones(nz,3)*rho_disc,nnb,2);
 qnormalize=q./(sum(q)*dz);
 
 %% %% get the localmax from the simulated field
 locmaxZ2 = [];
-nsim = 1000;
+nsim = 10000;
 dim = [50 50];
 f_new = zeros([dim(1:2),nsim]);
 cut = 1;
@@ -42,9 +52,9 @@ edge = ceil(4*stddev_fwhm);
 
 tic
 for nn = 1:nsim
-    lat_data = normrnd( 0, 1, [dim(1)+2*edge, dim(2)+2*edge, nu+1]);
+    lat_data = normrnd( 0, 1, [dim(1)+2*edge, dim(2)+2*edge, nu]);
     smoothed_fconv = convfield_t(lat_data, FWHM);
-    f_new(:,:,nn) = smoothed_fconv((edge+1):(edge+dim(1)),(edge+1):(edge+dim(2)));
+    f_new(:,:,nn) = smoothed_fconv.field((edge+1):(edge+dim(1)),(edge+1):(edge+dim(2)));
 end
 
 for nn = 1:nsim
@@ -74,7 +84,7 @@ toc
 %% Get the smoothed eCDF of the simulated data
 %pval_dist = pval_lookup(rho, z, D, "continuous", 1); % through the look-up table
 
-[empf, empz] = ecdf(locmaxZ);
+[empf, empz] = ecdf(locmaxZ1);
 empz = empz(2:end); empf = empf(2:end);   %remove non-unique point
 pval_dist = 1-interp1(empz,empf,z); % without lookup table
 
@@ -99,9 +109,11 @@ hline = refline(1,0);
 set(hline,'LineStyle',':');
 set(hline,'Color','black');
 set(hline,'LineWidth', 2);
-legend([plot2, plot1, plot3, hline], 'Theoretical continuous','Simulation method','Theoretical discrete', '45 degree line', 'Location','northwest')
-title(['$\rho$ = ' num2str(rho)], 'Interpreter','latex')
-ax = gca;
 set(gca,'FontSize', 18)
+xlabel('$p$-value', 'Interpreter', 'latex', 'fontsize',24)
+ylabel('ecdf($p$)', 'Interpreter', 'latex', 'fontsize',24)
+legend([plot2, plot1, plot3, hline], 'Theoretical continuous','Look-up table','Partially connected DLM', '45 degree line', 'Location','northwest')
+title(['$\rho$ = ' num2str(rho_disc) '\ (' 'FWHM = ' num2str(round(FWHM,1)) ')'], 'Interpreter','latex', 'fontsize',24)
+%ax = gca;
 axis square
 
