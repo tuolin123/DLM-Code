@@ -1,14 +1,13 @@
 function locmax = simulateLocMax_Discrete_Stationary(D, sigma2, niters, nondiag)
-% simulateLocMax_Discrete_Stationary(D, rho, var, niters) simulate the local 
+% simulateLocMax_Discrete_Stationary(D, sigma2, niters, nondiag) simulate the local 
 % maxima in an stationary gaussian field through theoretical distribution of
 % multivariate gaussian distribution.
 %--------------------------------------------------------------------------
 % ARGUMENTS
 % D             the dimension of the stationary field, at least 2.
-% cov           empirical covariance matrix estimated from the stationary 
+% sigma2        empirical covariance matrix estimated from the stationary 
 %               field, returned from empiricalCov().
 % niters        iteration times to generate the local maxima.
-% nsubj         subject number used in multivariate t-statistics
 % nondiag       whether we do not count the diagonal as the neighbor
 %--------------------------------------------------------------------------
 % OUTPUT

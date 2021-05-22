@@ -19,13 +19,13 @@ function d = ddlm(z,rho,nnb,D)
 switch D
     case 1
         ld = 1;
-        PQd = asin(sqrt((1-rho(z==0,1)^2)/2))/pi; % correct for z is zero.
+        PQd = asin(sqrt((1-rho(z==0,1).^2)./2))./pi; % correct for z is zero.
     case 2
         ld = 2;
-        PQd = asin(sqrt((1-rho(z==0,1)^2)/2))/pi*asin(sqrt((1-rho(z==0,2)^2)/2))/pi;
+        PQd = asin(sqrt((1-rho(z==0,1).^2)./2))./pi.*asin(sqrt((1-rho(z==0,2).^2)./2))./pi;
     case 3
         ld = 3;
-        PQd = asin(sqrt((1-rho(z==0,1)^2)/2))/pi*asin(sqrt((1-rho(z==0,2)^2)/2))/pi*asin(sqrt((1-rho(z==0,3)^2)/2))/pi;
+        PQd = asin(sqrt((1-rho(z==0,1).^2)./2))./pi.*asin(sqrt((1-rho(z==0,2).^2)./2))./pi.*asin(sqrt((1-rho(z==0,3).^2)./2))./pi;
 end
 phi=exp(-z.^2./2)./sqrt(2*pi);
 nz=length(z);
@@ -53,6 +53,8 @@ for i=1:nz
     end
     PQ(i)=Q;
 end
-PQ(z==0) = PQd;
+if any(z == 0)
+    PQ(z==0) = PQd;
+end
 d=PQ.*phi;
 return
