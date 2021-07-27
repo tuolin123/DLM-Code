@@ -1,27 +1,54 @@
 function locmax = simulateLocMax_Discrete(D, rho, var, niters, nondiag, nsubj)
-% simulateLocMax(D, rho, var, niters) simulate the local maxima in an
-% isotropic field through theoretical distribution of multivariate
-% gaussian distribution.
+% simulateLocMax(D, rho, var, niters) simulates the local maxima in an
+% isotropic field through simulating the theoretical distribution of
+% multivariate gaussian distribution or t-distribution, using the
+% correlation from a discrete lattice.
 %--------------------------------------------------------------------------
 % ARGUMENTS
-% D             the dimension of the isotropic field.
-% rho           spatial correlation between two voxels, a vector with all
-% pairs in the neighborhood generated from discrete_covariance.
-% var           variance of the field.
-% niters        iteration times to generate the local maxima.
-% nsubj         subject number used in multivariate t-statistics
-% nondiag       whether we do not count the diagonal as the neighbor
+% D             the dimension of the isotropic field
+% rho           a vector of spatial correlation between all pairs of 
+%               neighboring voxels with distinct values when the field is 
+%               in a discrete lattice, generated from discrete_covariance
+% var           the variance of the field
+% niters        the number of iteration times to generate the local maxima
+% nondiag       a 0/1 value which denotes for whether we only consider the
+%               partial connectivity case, default is 0
+% nsubj         the subject number used in multivariate t-statistics, if
+%               specified, the function will use t-distribution
 %--------------------------------------------------------------------------
 % OUTPUT
-% the local maxima from theoretical multivariate gaussian distribution.
+% locmax        a set of simulated local maxima
 %--------------------------------------------------------------------------
 % EXAMPLES
-% D = 1;
+% %3D fully connected example
+% D = 3;
 % var = 1;
-% rho = discrete_covariance(1.3, D);
+% nu = 1.3
+% rho = discrete_covariance(nu, D);
 % niters = 10000;
-% simulateLocMax(D, rho, var, niters)
+% simulateLocMax_Discrete(D, rho, var, niters)
+% 
+% %3D partially connected example
+% D = 3;
+% var = 1;
+% nu = 1.3;
+% rho = discrete_covariance(nu, D);
+% niters = 10000;
+% nondiag = 1;
+% simulateLocMax_Discrete(D, rho, var, niters, nondiag)
 %
+% %2D t-field example
+% D = 2;
+% var = 1;
+% nu = 1.3;
+% rho = discrete_covariance(nu, D);
+% niters = 10000;
+% nondiag = 1;
+% nsubj = 20;
+% simulateLocMax_Discrete(D, rho, var, niters, nondiag, nsubj)
+%--------------------------------------------------------------------------
+% AUTHOR: Tuo Lin
+%--------------------------------------------------------------------------
 if nargin == 4
     I_tstat = 0; % whether we use t-statistics
     nondiag = 0;
@@ -49,7 +76,7 @@ switch D
         corr(euc == 1) = rho(2);
         corr(euc == 4) = rho(3);
         sigma = var*corr;
-        dimMat = 3;
+        dimMat = 3; % number of voxels in the neighboring matrix
         midpt = 2; % index of midpoint of the vector
     case 2
         sz = [3 3];
@@ -66,7 +93,8 @@ switch D
         sigma = var*corr;
         dimMat = 9;
         midpt = 5;
-        diagind = sort([midpt-3.^(0:(D-1)), midpt+3.^(0:(D-1)), midpt]);
+        diagind = sort([midpt-3.^(0:(D-1)), midpt+3.^(0:(D-1)), midpt]); 
+        % the location index of the diagonals in a neighboring matrix
     case 3
         sz = [3 3 3];
         [I1, I2, I3] = ind2sub(sz, 1:27);
@@ -113,12 +141,8 @@ else
     R = reshape(R,[dimMat,niters,nsubj]);
     Rtstat = mvtstat(R,[dimMat,niters]);
     for iter = 1:niters
-        %R = (mvnrnd(zeros(1,dimMat), sigma, nsubj))';
-        %Rtstat = mvtstat(R,[dimMat,1]);
         if Rtstat(midpt,iter) == max(Rtstat(:,iter))
-        %if Rtstat(midpt) == max(Rtstat)
             locmax(k) = max(Rtstat(:,iter));
-            %locmax(k) = max(Rtstat);
             k = k+1;
         end
     end

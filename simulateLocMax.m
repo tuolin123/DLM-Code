@@ -1,28 +1,53 @@
 function locmax = simulateLocMax(D, rho, var, niters, nondiag, nsubj)
-% simulateLocMax(D, rho, var, niters) simulate the local maxima in an
-% isotropic field through theoretical distribution of multivariate
-% gaussian distribution.
+% simulateLocMax(D, rho, var, niters) simulates the local maxima in an
+% isotropic field through simulating the theoretical distribution of
+% multivariate gaussian distribution or t-distribution, using the
+% correlation from a continuous field.
 %--------------------------------------------------------------------------
 % ARGUMENTS
 % D             the dimension of the isotropic field.
-% rho           spatial correlation between two adjacent voxels.
-% var           variance of the field.
-% niters        iteration times to generate the local maxima.
-% nsubj         subject number used in multivariate t-statistics, if
-% missing, the default is using multivariate gaussian distribution
-% nondiag       whether we do not count the diagonal as the neighbor, if
-% missing, the default is not counting the diagonal as the neighbor
+% rho           the spatial correlation between two adjacent voxels in a 
+%               continuous random field
+% var           the variance of the field
+% niters        the number of iteration times to generate the local maxima
+% nondiag       a 0/1 value which denotes for whether we only consider the
+%               partial connectivity case, default is 0
+% nsubj         the subject number used in multivariate t-statistics, if
+%               specified, the function will use t-distribution
 %--------------------------------------------------------------------------
 % OUTPUT
-% the local maxima from theoretical multivariate gaussian distribution.
+% locmax        a set of simulated local maxima
 %--------------------------------------------------------------------------
 % EXAMPLES
-% D = 1;
+% %3D fully connected example
+% D = 3;
 % var = 1;
-% rho = 0.8;
+% nu = 1.3
+% rho = 0.9;
 % niters = 10000;
 % simulateLocMax(D, rho, var, niters)
+% 
+% %3D partially connected example
+% D = 3;
+% var = 1;
+% nu = 1.3;
+% rho = 0.99;
+% niters = 10000;
+% nondiag = 1;
+% simulateLocMax(D, rho, var, niters, nondiag)
 %
+% %2D t-field example
+% D = 2;
+% var = 1;
+% nu = 1.3;
+% rho = 0.9;
+% niters = 10000;
+% nondiag = 1;
+% nsubj = 20;
+% simulateLocMax(D, rho, var, niters, nondiag, nsubj)
+%--------------------------------------------------------------------------
+% AUTHOR: Tuo Lin
+%--------------------------------------------------------------------------
 if nargin == 4
     I_tstat = 0; % whether we use t-statistics
     nondiag = 0;
@@ -46,14 +71,15 @@ switch D
         corr11 = 1;
         corr = [corr11, corr12, corr23; corr12,corr11, corr12;corr23, corr12, corr11];
         sigma = var*corr;
-        dimMat = 3;
-        midpt = 2;
+        dimMat = 3; % number of voxels in the neighboring matrix
+        midpt = 2; % index of midpoint of the vector
     case 2
         corr12 = rho;
         corr23 = rho^4;
         corr11 = 1;
         corr1 = [corr11, corr12, corr23; corr12,corr11, corr12;corr23, corr12, corr11];
-        corr = kron(corr1, corr1);
+        % the 2D correlation matrix is a kronecker product of two 1D correlation
+        corr = kron(corr1, corr1); 
         sigma = var*corr;
         dimMat = 9;
         midpt = 5;
@@ -63,6 +89,7 @@ switch D
         corr23 = rho^4;
         corr11 = 1;
         corr1 = [corr11, corr12, corr23; corr12,corr11, corr12;corr23, corr12, corr11];
+        % the 3D correlation matrix is a kronecker product of three 1D correlation
         corr = kron(kron(corr1, corr1),corr1);
         sigma = var*corr;
         dimMat = 27;
