@@ -1,15 +1,21 @@
 function discov = discrete_covariance(nu, D)
-%__________________________________________________________________________
-% Computes discrete version of the covariance function.
-% 
-% Input:
-%   nu   -    Standard deviation of the smoothing kernel
-%   D    -    The dimension of the kernel
-%
-% Output:
-%   discov:   -    Array of dimension D convariance matrix
-%__________________________________________________________________________
-
+% Compute the correlation function of the isotropic field on discrete
+% lattice.
+%--------------------------------------------------------------------------
+% ARGUMENTS
+% nu            the standard deviation of the smoothing kernel
+% D             the dimension of the isotropic field.
+%--------------------------------------------------------------------------
+% OUTPUT
+% discov        the correlation function to be used in simulateLocMax_Discrete.m 
+%--------------------------------------------------------------------------
+% EXAMPLES
+% nu = 0.3;
+% D = 2;
+% discrete_covariance(nu, D)
+%--------------------------------------------------------------------------
+% AUTHOR: Tuo Lin
+%--------------------------------------------------------------------------
 switch D
     case 1
         L = max(2,ceil(5*nu)); % how is the support defined
