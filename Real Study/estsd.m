@@ -46,22 +46,28 @@ if ~exist('initial','var' )
     initial = 0.5;
 end
 
-Z = Z.*zero2nan(mask);
-Z_stand = Z/std(Z(~isnan(Z)));
-Z_mean = mean(Z(~isnan(Z)));
+if length(szz) == D
+    Z = Z.*zero2nan(mask);
+    Z_stand = Z/std(Z(~isnan(Z)));
+    Z_mean = mean(Z_stand(~isnan(Z_stand)));
+else
+    Z_stand = Z/std(Z,0,D+1);
+    Z_stand = Z_stand.*zero2nan(mask);
+    Z_mean = mean(Z_stand(~isnan(Z_stand)));
+end
 
 switch D
     case 1
         rho_hor = (Z_stand(1:(Dim(1)-1),:)-Z_mean).*(Z_stand(2:Dim(1),:)-Z_mean);
-        rho = max(mean(rho_hor(~isnan(rho_hor))));
-        rho = min(0.99, rho);
+        rho = max(mean(rho_hor(~isnan(rho_hor))),0);
+        %rho = min(0.99, rho);
         fun = @(sigma) rho2sd(rho, sigma, D);
         sigma = fzero(fun, initial);
     case 2
         rho_hor = (Z_stand(1:(Dim(1)-1),1:Dim(2),:)-Z_mean).*(Z_stand(2:Dim(1),1:Dim(2),:)-Z_mean);
         rho_vert = (Z_stand(1:Dim(1),1:(Dim(2)-1),:)-Z_mean).*(Z_stand(1:Dim(1),2:Dim(2),:)-Z_mean);
         rho = [max(mean(rho_hor(~isnan(rho_hor))),0) max(mean(rho_vert(~isnan(rho_vert))),0)];
-        rho = min(0.99, rho);
+        %rho = min(0.99, rho);
         fun = @(sigma) rho2sd(rho(1), sigma, D);
         sigma1 = fzero(fun, initial);
         fun = @(sigma) rho2sd(rho(2), sigma, D);
@@ -72,7 +78,7 @@ switch D
         rho_vert = (Z_stand(1:Dim(1),1:(Dim(2)-1),1:Dim(3),:)-Z_mean).*(Z_stand(1:Dim(1),2:Dim(2),1:Dim(3),:)-Z_mean);
         rho_depth = (Z_stand(1:Dim(1),1:Dim(2),1:(Dim(3)-1),:)-Z_mean).*(Z_stand(1:Dim(1),1:Dim(2),2:Dim(3),:)-Z_mean);
         rho = [max(mean(rho_hor(~isnan(rho_hor))),0) max(mean(rho_vert(~isnan(rho_vert))),0) max(mean(rho_depth(~isnan(rho_depth))),0)];
-        rho = min(0.99, rho);
+        %rho = min(0.99, rho);
         fun = @(sigma) rho2sd(rho(1), sigma, D);
         sigma1 = fzero(fun, initial);
         fun = @(sigma) rho2sd(rho(2), sigma, D);
