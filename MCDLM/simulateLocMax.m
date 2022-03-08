@@ -1,19 +1,22 @@
 function locmax = simulateLocMax(D, rho, var, niters, nondiag, nsubj)
-% simulateLocMax(D, rho, var, niters) simulates the local maxima in an
+% simulateLocMax(D, rho, var, niters) generates the local maxima in an
 % isotropic field through simulating the theoretical distribution of
 % multivariate gaussian distribution or t-distribution, using the
-% correlation from a continuous field.
+% covariance matrix calculated from a continuous field.
 %--------------------------------------------------------------------------
 % ARGUMENTS
 % D             the dimension of the isotropic field.
 % rho           the spatial correlation between two adjacent voxels in a 
 %               continuous random field
 % var           the variance of the field
-% niters        the number of iteration times to generate the local maxima
+% niters        the number of iterations to generate the local maxima, note 
+%               that the number of local maxima generated will be
+%               smaller than this number since we throw away those not
+%               qualified as local maxima
 % nondiag       a 0/1 value which denotes for whether we only consider the
 %               partial connectivity case, default is 0
-% nsubj         the subject number used in multivariate t-statistics, if
-%               specified, the function will use t-distribution
+% nsubj         the degrees of freedom used in multivariate t-statistics, 
+%               if specified, the function will use t-distribution
 %--------------------------------------------------------------------------
 % OUTPUT
 % locmax        a set of simulated local maxima
@@ -22,7 +25,6 @@ function locmax = simulateLocMax(D, rho, var, niters, nondiag, nsubj)
 % %3D fully connected example
 % D = 3;
 % var = 1;
-% nu = 1.3
 % rho = 0.9;
 % niters = 10000;
 % simulateLocMax(D, rho, var, niters)

@@ -1,5 +1,6 @@
 function e = ellipsoid_kernel(D, sigma, x)
-% Computes density function of the elliptical Gaussian kernel.
+% Computes density function of the elliptical Gaussian kernel, inner
+% function of discrete_covariance_ellipsoid.m
 %--------------------------------------------------------------------------
 % ARGUMENTS
 % D             the dimension of the kernel
@@ -17,6 +18,9 @@ function e = ellipsoid_kernel(D, sigma, x)
 % sigma = [1.3 1.3];
 % [X, Y] = meshgrid((-5:1:5) ,(-5:1:5));
 % gaussian_kernel(D, sigma, {X,Y})
+%--------------------------------------------------------------------------
+% AUTHOR: Tuo Lin
+%--------------------------------------------------------------------------
 %__________________________________________________________________________
 x2 = 0;        
 for i = 1:D

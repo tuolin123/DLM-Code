@@ -1,15 +1,14 @@
-%% % Description: This script provides an empirical distrbution of the 
-% local maxima in a 3D gaussian random field by simulation from the 
-% theoretical multivariate gaussian distribution.
+%% This script compares the performance of MCDLM, ADLM and continuous 
+% methods for computing the height distribution of local maxima in a 3D
+% isotropic gaussian random field. The covariance functions used in the DLM 
+% methods here are calculated from the isotropic gaussian field on a
+% discrete lattice by discrete_covariance.m
 
+%% Parameter set-up
 D = 3;
 sigma = 1;
 niter = 1e5;
-
-%% Simulate the local maxima from the theoretical multivariate gaussian distribution
-load('inverse_rho_discrete.mat')
-rho_disc = 0.99;
-stddev_fwhm = invrho(rho_disc*100);
+rho_disc = 0.01;
 if rho_disc == 0.01
     n_lim = 1e6;
 elseif rho_disc == 0.5
@@ -17,24 +16,32 @@ elseif rho_disc == 0.5
 elseif rho_disc == 0.99
     n_lim = 2e5;
 end
+% use the following line if the voxels in the diagonal direction are not
+% considered as neighbors
+% nondiag = 1;
+
+%% MCDLM method implementation
+% calculate the standard deviation of the smoothing kernel corresponds to
+% the correlation of the field
+load('inverse_rho_discrete.mat')
+stddev_fwhm = invrho(rho_disc*100);
+
+% we now have a direct code to calculate this
+% stddev_fwhm = rho2sd(rho_disc, D);
 
 tic
 locmaxZ1 = [];
-rho = discrete_covariance(stddev_fwhm, D); % inverse of rho = 0.99, which should be the standard deviation 
+rho = discrete_covariance(stddev_fwhm, D); 
 for j = 1:10000
     locmaxZ = simulateLocMax_Discrete(D,rho,sigma,niter);
+    % If diagonal voxels are not considered
+    % locmaxZ = simulateLocMax_Discrete(D,rho,sigma,niter,nondiag);
     locmaxZ1 = [locmaxZ locmaxZ1];
     if length(locmaxZ1) > n_lim
         break;
     end
 end
 toc
-
-%% After this find rho corresponding to specific standard deviation
-%stddev_fwhm = 5;
-%[M, I] = min(abs(invrho-stddev_fwhm));
-%rho_disc = rho(I);
-%rho_disc = 0.01;
 
 %% %% Density of local maxima(continuous case)
 kappa   = 1; % theoretical kappa
@@ -48,8 +55,8 @@ ddrho = 0.001;
 drho=0:ddrho:0.999;
 nrho=length(drho);
 p=zeros(nz,nrho);
-nnb=ones(nz,3)*2;
-q=ddlm(z,ones(nz,3)*rho_disc,nnb,3);
+nnb=ones(nz,D)*2;
+q=ddlm(z,ones(nz,D)*rho_disc,nnb,D);
 qnormalize=q./(sum(q)*dz);
 
 %% %% get the localmax from the simulated field
@@ -70,19 +77,15 @@ for i = 1:2
     end
 
     f_new = f_new/std(f_new(:));
-    % save(['iso',num2str(dim(1)),num2str(dim(2)),num2str(dim(3)),'nsim'...
-    %                 ,num2str(nsim),'_stddev',num2str(stddev_fwhm),'.mat'])
 
     for nn = 1:nsim
         Z = f_new(:,:,:,nn);
         Z = squeeze(Z);
-        %Z = interp3(Z, 'cubic');
-        %Z = Z(range,range); % since two dimensional
-
+    
         % Find local maxima of the field Z and remove maxima at the boundary
         Imax = imregionalmax(Z); Imin = imregionalmin(Z);
-        % Not including the diagonal
-        % Imax = imregionalmax(Z,4); Imin = imregionalmin(Z,4);
+        % If not including the diagonal as neighbors, use the next line
+        % Imax = imregionalmax(Z,6); Imin = imregionalmin(Z,6);
 
         % Not including the boundary
         Imax = Imax((1+cut):(end-cut), (1+cut):(end-cut), (1+cut):(end-cut));
@@ -98,19 +101,23 @@ for i = 1:2
 end
 toc
 
-%% Get the smoothed eCDF of the simulated data
-tic
-pval_dist = pval_lookup(rho_disc, z, D, 'discrete',1); % through the look-up table
-toc
-% [empf, empz] = ecdf(locmaxZ1);
-% empz = empz(2:end); empf = empf(2:end);   %remove non-unique point
-% pval_dist = 1-interp1(empz,empf,z);
+%% Draw the pp-plot for comparison
+% If using the pre-saved lookup table, use the next line
+% tic
+% pval_dist = pval_lookup(rho_disc, z, D, 'discrete',1); 
+% toc
 
-% comparison of the look-up table method and simulated field method
+% Calculate the p-value by MCDLM
+[empf, empz] = ecdf(locmaxZ1);
+empz = empz(2:end); empf = empf(2:end);   %remove non-unique point
+pval_dist = 1-interp1(empz,empf,z);
+
 figure();
+% Calculate the reference p-value 
 [ksf, ksz] = ksdensity(locmaxZ2, z);
 pval_ref = 1-cumsum(ksf)*dz;
 
+% Plot the pp-plot
 plot1 = plot(pval_dist,pval_ref,'LineWidth', 2);
 plot1;
 xlim([0 0.05])
@@ -133,12 +140,10 @@ ylabel('Reference $p$-value', 'Interpreter', 'latex', 'fontsize',18)
 xticks(0:0.01:0.05)
 lgd = legend([plot3, plot1, plot2, hline], 'ADLM', 'MCDLM', 'Continuous RFT','45 degree line', 'Location','southeast');
 lgd.FontSize = 12;
-%legend([plot2, plot1, plot3, hline], 'Theoretical continuous','Look-up table','Partially connected DLM', '45 degree line', 'Location','southeast')
 title(['$\rho$ = ' num2str(rho_disc) '\ (' 'FWHM = ' num2str(round(FWHM,1)) ')'], 'Interpreter','latex', 'fontsize',18)
-%ax = gca;
 axis square
 
-saveas(gcf, 'lookup_3D_rho0.99_disc.jpg')
+%saveas(gcf, 'lookup_3D_rho0.01_disc.jpg')
 %% Check the independent case
 rhoindp = discrete_covariance(0, D);
 locmaxZ = simulateLocMax_Discrete(D,rhoindp,sigma,niter);

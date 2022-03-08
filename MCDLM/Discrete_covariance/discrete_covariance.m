@@ -1,10 +1,11 @@
 function discov = discrete_covariance(nu, D)
-% Compute the correlation function of the isotropic field on discrete
+% Compute the correlation (covariance) function of the isotropic field from 
+% convolving the white noise with isotropic Gaussian kernel on discrete
 % lattice.
 %--------------------------------------------------------------------------
 % ARGUMENTS
 % nu            the standard deviation of the smoothing kernel
-% D             the dimension of the isotropic field.
+% D             the dimension of the isotropic field
 %--------------------------------------------------------------------------
 % OUTPUT
 % discov        the correlation function to be used in simulateLocMax_Discrete.m 

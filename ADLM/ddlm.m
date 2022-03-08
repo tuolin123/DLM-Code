@@ -1,21 +1,25 @@
 function d = ddlm(z,rho,nnb,D)
-% ddlm(z,rho,nnb,D) computes the density of local maxima using the discrete method.
+% ddlm(z,rho,nnb,D) computes the density of local maxima using the Analytical DLM method.
 %--------------------------------------------------------------------------
 % ARGUMENTS
 % z             a vector of local maxima value.
-% rho           spatial correlation, dimension 3, in each direction lattice. Input should be a n*d matrix with n voxels and d dimensions.
+% rho           spatial correlation in each direction lattice. Input should be a n*d matrix with n voxels and d dimensions.
 % nnb           number of neighbor in each direction lattice, can be 0,1,2. Input should be a n*d matrix with n voxels and d dimensions. 
 % D             the dimension of the image.
 %--------------------------------------------------------------------------
 % OUTPUT
-% the density of the discrete local maxima at value z.
+% d             the density of the discrete local maxima at value z.
 %--------------------------------------------------------------------------
 % EXAMPLES
-% z = -2:0.01:2;
-% rho = ones(10,3)*0.8;
-% nnb = ones(10,3);
-% dendlm = ddlm(z,rho,nnb,1);
-%
+% z = -2:0.001:2; 
+% nz = length(z);
+% D = 3;
+% rho = ones(nz,D)*0.8;
+% nnb = ones(nz,D)*2;
+% dendlm = ddlm(z,rho,nnb,D);
+%--------------------------------------------------------------------------
+% AUTHOR: Tuo Lin
+%--------------------------------------------------------------------------
 switch D
     case 1
         ld = 1;
@@ -41,14 +45,12 @@ for i=1:nz
         zplus=max(zi,0);
         zall=0:da:alpha;
         f=exp(-1/2*h^2*zi^2./(sin(zall)).^2); % third part in equation (2) in manuscript
-        %I=integral(@(y) 1./(-2.*log(y).*sqrt(-2.*log(y)-hz^2)), 0, y0);
         if nnb(i,l)==1
             % Whether the neighbor in one dimension includes 1 or 2 voxels
             Q=Q*(1-erfc(h*zplus/sqrt(2))/2);
         end
         if nnb(i,l)==2
             Q=Q*(1-erfc(h*zplus/sqrt(2))+sum(f)*da/pi);
-            %Q=Q*(1-erfc(hzplus/sqrt(2))+I*hz/pi);
         end
     end
     PQ(i)=Q;
