@@ -4,9 +4,9 @@ function [rho, sigma] = estsd(Z, mask, D, initial)
 % the standard deviation of the smoothing filter.
 %--------------------------------------------------------------------------
 % ARGUMENTS
-% Z        Data with size Dim, and with nan where there is missing
-%          data
-% mask     A mask of the data which is made of 1s and 0s. 1s for where
+% Z        Data with size Dim * n, where Dim is the image size and n is the
+%          sample size of images. Missing data is denoted as nan
+% mask     A mask (size Dim) of the data which is made of 1s and 0s. 1s for where
 %          the data is inside the mask and 0s for where the data is ouside
 %          the mask. Default is taken to be the mask with 1s everywhere
 % D        Dimension of the data, varies from 1, 2, 3
@@ -19,19 +19,21 @@ function [rho, sigma] = estsd(Z, mask, D, initial)
 %--------------------------------------------------------------------------
 % EXAMPLES
 % Dim = [91,109];
-% nsubj = 1;
-% noise = noisegen(Dim, nsubj, 20);
+% nsubj = 100;
+% FWHM = 2;
+% noise = noisegen(Dim, nsubj, FWHM);
 % D = 2;
 % initial = 0.5;
 % mask = spm_read_vols(spm_vol('MNImask.nii'));
 % mask_2d = squeeze(mask(:,:,45));
-% estsd(noise, mask_2d, 2, 0.5)
+% [rho_est, sigma_est] = estsd(noise, mask_2d, 2, initial);
+% sigma2FWHM(sigma_est) % check FWHM
 %--------------------------------------------------------------------------
 % AUTHOR: Tuo Lin
 %--------------------------------------------------------------------------
 Z = squeeze(Z);
-szz = size(Z);
-Dim = szz(1:D);
+z_size = size(Z);
+Dim = z_size(1:D);
 
 if ~exist('mask','var' )
     mask = ones(Dim(1:D));
@@ -46,12 +48,12 @@ if ~exist('initial','var' )
     initial = 0.1;
 end
 
-if length(szz) == D
+if length(z_size) == D
     Z = Z.*zero2nan(mask);
-    Z_stand = Z/std(Z(~isnan(Z)));
+    Z_stand = Z./std(Z(~isnan(Z)));
     Z_mean = mean(Z_stand(~isnan(Z_stand)));
 else
-    Z_stand = Z/std(Z,0,D+1);
+    Z_stand = Z./std(Z,0,D+1);
     Z_stand = Z_stand.*zero2nan(mask);
     Z_mean = mean(Z_stand(~isnan(Z_stand)));
 end
