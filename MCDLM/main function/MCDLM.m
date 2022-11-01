@@ -66,6 +66,7 @@ function [peaklocs, peakinds, peakvals, peakpvals] = MCDLM(lat_data,...
 % nimgs = 20;
 % FWHM = 1.4;
 % gaussianize = 1;
+% isotropic = 1;
 % lat_data = normrnd(0,1,[Dim,nimgs]);
 % mask = zeros(Dim); mask(30:60,40:80,30:60) = 1; mask = logical(mask);
 % [peaklocs, peakinds, peakvals, peakpvals] =...
