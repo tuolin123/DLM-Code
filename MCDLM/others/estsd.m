@@ -9,43 +9,58 @@ function [rho, sigma] = estsd(Z, mask, D, initial)
 % mask     A mask (size Dim) of the data which is made of 1s and 0s. 1s for where
 %          the data is inside the mask and 0s for where the data is ouside
 %          the mask. Default is taken to be the mask with 1s everywhere
-% D        Dimension of the data, varies from 1, 2, 3
+% D        Dimension of the data. Default is length(size(Z))-1.
 % initial  The initial value for solving rho2sd() function
 %--------------------------------------------------------------------------
 % OUTPUT
-% rho      The correlation of the adjacent voxels in each of the lattice
-%          directions
-% sigma    The standard deviation of the smoothing filter
+% rho      A D dimensional vector of the correlation of adjacent voxels 
+%          in each of the lattice directions
+% sigma    A D dimensional vector of the standard deviation of the 
+%          smoothing filter in each of the lattice directions
 %--------------------------------------------------------------------------
 % EXAMPLES
+%2D example
 % Dim = [91,109];
 % nsubj = 100;
 % FWHM = 2;
 % noise = noisegen(Dim, nsubj, FWHM);
 % D = 2;
 % initial = 0.5;
-% mask = spm_read_vols(spm_vol('MNImask.nii'));
-% mask_2d = squeeze(mask(:,:,45));
-% [rho_est, sigma_est] = estsd(noise, mask_2d, 2, initial);
+% mask = zeros(Dim); mask(30:60,40:80) = 1; mask = logical(mask);
+% [rho_est, sigma_est] = estsd(noise, mask, D, initial);
+% sigma2FWHM(sigma_est) % check FWHM
+
+%3D example
+% Dim = [91,109,91];
+% nsubj = 20;
+% FWHM = 2;
+% noise = noisegen(Dim, nsubj, FWHM);
+% D = 3;
+% initial = 0.5;
+% mask = zeros(Dim); mask(30:60,40:80,30:60) = 1; mask = logical(mask);
+% [rho_est, sigma_est] = estsd(noise, mask, D, initial);
 % sigma2FWHM(sigma_est) % check FWHM
 %--------------------------------------------------------------------------
 % AUTHOR: Tuo Lin
 %--------------------------------------------------------------------------
 Z = squeeze(Z);
 z_size = size(Z);
-Dim = z_size(1:D);
 
 if ~exist('mask','var' )
+    D = length(z_size) - 1;
+    Dim = z_size(1:D);
     mask = ones(Dim(1:D));
 end
 if ~exist('D','var')
-    D = length(Dim);
-end
-if ~isequal(size(mask), Dim)
-    error('The mask must be the same size as the field')
+    D = length(z_size) - 1;
 end
 if ~exist('initial','var' )
     initial = 0.1;
+end
+
+Dim = z_size(1:D);
+if ~isequal(size(mask), Dim)
+    error('The mask must be the same size as the field')
 end
 
 if length(z_size) == D
