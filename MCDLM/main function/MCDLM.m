@@ -1,6 +1,6 @@
 function [peaklocs, peakinds, peakvals, peakpvals] = MCDLM(lat_data,...
-    mask, D, FWHM, isotropic, gaussianize, sigma, niter, nlim, nj, nondiag)
-% MCDLM(lat_data, mask, D, FWHM, sigma, niter, nlim, nj, nondiag) find the
+    mask, D, FWHM, isotropic, gaussianize, niter, nlim, nj, nondiag)
+% MCDLM(lat_data, mask, D, FWHM, niter, nlim, nj, nondiag) find the
 % top local maxima of an image that lies in a mask, and calculate the
 % p-values of these local maxima by using MCDLM approach with 
 % (1) t-distribution and (2) gaussian distribution after gaussianization.
@@ -15,7 +15,6 @@ function [peaklocs, peakinds, peakvals, peakpvals] = MCDLM(lat_data,...
 %           images
 % isotropic a 0/1 value denotes for whether the user want to use the
 %           isotropic property of the field, default is 1
-% sigma     the variance of the field, default is 1
 % niter     the iteration time used for simulateLocMax_Discrete()
 % nlim      the number of local maxima for the true height distribution
 % nj        a number of simulation time to ensure the number of local
@@ -83,9 +82,6 @@ end
 if ~exist('gaussian', 'var')
     gaussianize = 0;
 end
-if ~exist('sigma', 'var')
-    sigma = 1;
-end
 if ~exist('niter', 'var')
     niter = 1e5;
 end
@@ -129,19 +125,20 @@ end
 % standardize
 f_new = f_new./std(f_new, 0, D+1);
 
-% estimate the sd of smoothing kernel
-    [~, sigma_est] = estsd(f_new, mask, D, 0.5); 
-
 if isotropic == 1
+    % estimate the sd of smoothing kernel
+    [~, kernel_sd] = estsd(f_new, mask, D, 0.5);  % call it kernel_sd
+
     % transfer into the spatial correlation
-    rho = discrete_covariance(mean(sigma_est), D);
+    rho = discrete_covariance(mean(kernel_sd), D);
+    var = 1; %the variance of field
     
     % run MCDLM with calculated rho
     if gaussianize == 0
         locmaxZ1 = [];
         
         for j = 1:nj
-            locmaxZ_sigma1 = simulateLocMax_Discrete(D,rho,sigma,niter,nondiag,nimgs); %apply MCDLM to t-stats
+            locmaxZ_sigma1 = simulateLocMax_Discrete(D,rho,var,niter,nondiag,nimgs); %apply MCDLM to t-stats
             locmaxZ1 = [locmaxZ_sigma1 locmaxZ1];
             if length(locmaxZ1) > nlim
                 break;
@@ -155,7 +152,7 @@ if isotropic == 1
         % MCDLM method by applying the gaussianization
         locmaxZ2 = [];
         for j = 1:nj
-            locmaxZ_sigma2 = simulateLocMax_Discrete(D,rho,sigma,niter,nondiag); %apply MCDLM to Gaussian field
+            locmaxZ_sigma2 = simulateLocMax_Discrete(D,rho,var,niter,nondiag); %apply MCDLM to Gaussian field
             locmaxZ2 = [locmaxZ_sigma2 locmaxZ2];
             if length(locmaxZ2) > nlim
                 break;
@@ -169,14 +166,14 @@ if isotropic == 1
     end
 else
     % transfer into the correlation
-    rho = discrete_covariance_ellipsoid(sigma_est, D);
+    Sigma2 = empiricalCov(D, f_new, mask);
     
     % run MCDLM with calculated rho
     if gaussianize == 0
         locmaxZ1 = [];
         
         for j = 1:nj
-            locmaxZ_sigma1 = simulateLocMax_Discrete_Stationary(D,rho,niter,nondiag,nimgs); %apply MCDLM to t-stats
+            locmaxZ_sigma1 = simulateLocMax_Discrete_Stationary(D,Sigma2,niter,nondiag,nimgs); %apply MCDLM to t-stats
             locmaxZ1 = [locmaxZ_sigma1 locmaxZ1];
             if length(locmaxZ1) > nlim
                 break;
@@ -190,7 +187,7 @@ else
         % MCDLM method by applying the gaussianization
         locmaxZ2 = [];
         for j = 1:nj
-            locmaxZ_sigma2 = simulateLocMax_Discrete_Stationary(D,rho,niter,nondiag,nimgs); %apply MCDLM to Gaussian field
+            locmaxZ_sigma2 = simulateLocMax_Discrete_Stationary(D,Sigma2,niter,nondiag,nimgs); %apply MCDLM to Gaussian field
             locmaxZ2 = [locmaxZ_sigma2 locmaxZ2];
             if length(locmaxZ2) > nlim
                 break;
