@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.17)  11 SEP 2024 19:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.17)  11 SEP 2024 23:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1070,8 +1070,8 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.186 \end{align*}
-                  ] [4]
+l.186 \end{align}
+                 ] [4]
 Package hyperref Info: bookmark level for unknown algorithm defaults to 0 on in
 put line 276.
 LaTeX Font Info:    Font shape `U/lasy/b/n' in size <7> not available
@@ -1102,43 +1102,43 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 368.
 
-<figure/rho0_01_0_5.jpg, id=355, 983.675pt x 737.75626pt>
+<figure/rho0_01_0_5.jpg, id=357, 983.675pt x 737.75626pt>
 File: figure/rho0_01_0_5.jpg Graphic file (type jpg)
 <use figure/rho0_01_0_5.jpg>
 Package pdftex.def Info: figure/rho0_01_0_5.jpg  used on input line 378.
 (pdftex.def)             Requested size: 227.62204pt x 170.71603pt.
-<figure/rho0_5_0_99.jpg, id=356, 983.675pt x 737.75626pt>
+<figure/rho0_5_0_99.jpg, id=358, 983.675pt x 737.75626pt>
 File: figure/rho0_5_0_99.jpg Graphic file (type jpg)
 <use figure/rho0_5_0_99.jpg>
 Package pdftex.def Info: figure/rho0_5_0_99.jpg  used on input line 379.
 (pdftex.def)             Requested size: 227.62204pt x 170.71603pt.
 [8]
-<figure/2D_rho0.01_disc.jpg, id=370, 878.28125pt x 658.46pt>
+<figure/2D_rho0.01_disc.jpg, id=372, 878.28125pt x 658.46pt>
 File: figure/2D_rho0.01_disc.jpg Graphic file (type jpg)
 <use figure/2D_rho0.01_disc.jpg>
 Package pdftex.def Info: figure/2D_rho0.01_disc.jpg  used on input line 396.
 (pdftex.def)             Requested size: 140.92792pt x 127.3274pt.
-<figure/2D_rho0.5_disc.jpg, id=372, 878.28125pt x 658.46pt>
+<figure/2D_rho0.5_disc.jpg, id=374, 878.28125pt x 658.46pt>
 File: figure/2D_rho0.5_disc.jpg Graphic file (type jpg)
 <use figure/2D_rho0.5_disc.jpg>
 Package pdftex.def Info: figure/2D_rho0.5_disc.jpg  used on input line 397.
 (pdftex.def)             Requested size: 140.92792pt x 127.3274pt.
-<figure/2D_rho0.99_disc.jpg, id=374, 1124.2pt x 843.15pt>
+<figure/2D_rho0.99_disc.jpg, id=376, 1124.2pt x 843.15pt>
 File: figure/2D_rho0.99_disc.jpg Graphic file (type jpg)
 <use figure/2D_rho0.99_disc.jpg>
 Package pdftex.def Info: figure/2D_rho0.99_disc.jpg  used on input line 399.
 (pdftex.def)             Requested size: 140.92792pt x 127.13527pt.
-<figure/3D_rho0.01_disc.jpg, id=376, 878.28125pt x 658.46pt>
+<figure/3D_rho0.01_disc.jpg, id=378, 878.28125pt x 658.46pt>
 File: figure/3D_rho0.01_disc.jpg Graphic file (type jpg)
 <use figure/3D_rho0.01_disc.jpg>
 Package pdftex.def Info: figure/3D_rho0.01_disc.jpg  used on input line 404.
 (pdftex.def)             Requested size: 140.92792pt x 127.3274pt.
-<figure/3D_rho0.5_disc.jpg, id=378, 878.28125pt x 658.46pt>
+<figure/3D_rho0.5_disc.jpg, id=380, 878.28125pt x 658.46pt>
 File: figure/3D_rho0.5_disc.jpg Graphic file (type jpg)
 <use figure/3D_rho0.5_disc.jpg>
 Package pdftex.def Info: figure/3D_rho0.5_disc.jpg  used on input line 405.
 (pdftex.def)             Requested size: 140.92792pt x 127.3274pt.
-<figure/3D_rho0.99_disc.jpg, id=380, 1124.2pt x 843.15pt>
+<figure/3D_rho0.99_disc.jpg, id=382, 1124.2pt x 843.15pt>
 File: figure/3D_rho0.99_disc.jpg Graphic file (type jpg)
 <use figure/3D_rho0.99_disc.jpg>
 Package pdftex.def Info: figure/3D_rho0.99_disc.jpg  used on input line 407.
@@ -1167,92 +1167,92 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 437.
 
-<figure/2D_nu20_rho0.01.jpg, id=411, 878.28125pt x 658.46pt>
+<figure/2D_nu20_rho0.01.jpg, id=413, 878.28125pt x 658.46pt>
 File: figure/2D_nu20_rho0.01.jpg Graphic file (type jpg)
 <use figure/2D_nu20_rho0.01.jpg>
 Package pdftex.def Info: figure/2D_nu20_rho0.01.jpg  used on input line 449.
 (pdftex.def)             Requested size: 140.92792pt x 129.12813pt.
-<figure/2D_nu20_rho0.5.jpg, id=413, 878.28125pt x 658.46pt>
+<figure/2D_nu20_rho0.5.jpg, id=415, 878.28125pt x 658.46pt>
 File: figure/2D_nu20_rho0.5.jpg Graphic file (type jpg)
 <use figure/2D_nu20_rho0.5.jpg>
 Package pdftex.def Info: figure/2D_nu20_rho0.5.jpg  used on input line 450.
 (pdftex.def)             Requested size: 140.92792pt x 129.12813pt.
-<figure/2D_nu20_rho0.99.jpg, id=415, 878.28125pt x 658.46pt>
+<figure/2D_nu20_rho0.99.jpg, id=417, 878.28125pt x 658.46pt>
 File: figure/2D_nu20_rho0.99.jpg Graphic file (type jpg)
 <use figure/2D_nu20_rho0.99.jpg>
 Package pdftex.def Info: figure/2D_nu20_rho0.99.jpg  used on input line 451.
 (pdftex.def)             Requested size: 140.92792pt x 129.12813pt.
-<figure/2D_nu50_rho0.01.jpg, id=417, 878.28125pt x 658.46pt>
+<figure/2D_nu50_rho0.01.jpg, id=419, 878.28125pt x 658.46pt>
 File: figure/2D_nu50_rho0.01.jpg Graphic file (type jpg)
 <use figure/2D_nu50_rho0.01.jpg>
 Package pdftex.def Info: figure/2D_nu50_rho0.01.jpg  used on input line 456.
 (pdftex.def)             Requested size: 140.92792pt x 129.12813pt.
-<figure/2D_nu50_rho0.5.jpg, id=419, 878.28125pt x 658.46pt>
+<figure/2D_nu50_rho0.5.jpg, id=421, 878.28125pt x 658.46pt>
 File: figure/2D_nu50_rho0.5.jpg Graphic file (type jpg)
 <use figure/2D_nu50_rho0.5.jpg>
 Package pdftex.def Info: figure/2D_nu50_rho0.5.jpg  used on input line 457.
 (pdftex.def)             Requested size: 140.92792pt x 129.12813pt.
-<figure/2D_nu50_rho0.99.jpg, id=421, 878.28125pt x 658.46pt>
+<figure/2D_nu50_rho0.99.jpg, id=423, 878.28125pt x 658.46pt>
 File: figure/2D_nu50_rho0.99.jpg Graphic file (type jpg)
 <use figure/2D_nu50_rho0.99.jpg>
 Package pdftex.def Info: figure/2D_nu50_rho0.99.jpg  used on input line 458.
 (pdftex.def)             Requested size: 140.92792pt x 129.12813pt.
-<figure/2D_nu200_rho0.01.jpg, id=423, 878.28125pt x 658.46pt>
+<figure/2D_nu200_rho0.01.jpg, id=425, 878.28125pt x 658.46pt>
 File: figure/2D_nu200_rho0.01.jpg Graphic file (type jpg)
 <use figure/2D_nu200_rho0.01.jpg>
 Package pdftex.def Info: figure/2D_nu200_rho0.01.jpg  used on input line 463.
 (pdftex.def)             Requested size: 140.92792pt x 129.12813pt.
-<figure/2D_nu200_rho0.5.jpg, id=425, 878.28125pt x 658.46pt>
+<figure/2D_nu200_rho0.5.jpg, id=427, 878.28125pt x 658.46pt>
 File: figure/2D_nu200_rho0.5.jpg Graphic file (type jpg)
 <use figure/2D_nu200_rho0.5.jpg>
 Package pdftex.def Info: figure/2D_nu200_rho0.5.jpg  used on input line 464.
 (pdftex.def)             Requested size: 140.92792pt x 129.12813pt.
-<figure/2D_nu200_rho0.99.jpg, id=427, 878.28125pt x 658.46pt>
+<figure/2D_nu200_rho0.99.jpg, id=429, 878.28125pt x 658.46pt>
 File: figure/2D_nu200_rho0.99.jpg Graphic file (type jpg)
 <use figure/2D_nu200_rho0.99.jpg>
 Package pdftex.def Info: figure/2D_nu200_rho0.99.jpg  used on input line 465.
 (pdftex.def)             Requested size: 140.92792pt x 129.12813pt.
-<figure/3D_nu20_rho0.01.jpg, id=429, 878.28125pt x 658.46pt>
+<figure/3D_nu20_rho0.01.jpg, id=431, 878.28125pt x 658.46pt>
 File: figure/3D_nu20_rho0.01.jpg Graphic file (type jpg)
 <use figure/3D_nu20_rho0.01.jpg>
 Package pdftex.def Info: figure/3D_nu20_rho0.01.jpg  used on input line 474.
 (pdftex.def)             Requested size: 140.92792pt x 129.12813pt.
-<figure/3D_nu20_rho0.5.jpg, id=431, 878.28125pt x 658.46pt>
+<figure/3D_nu20_rho0.5.jpg, id=433, 878.28125pt x 658.46pt>
 File: figure/3D_nu20_rho0.5.jpg Graphic file (type jpg)
 <use figure/3D_nu20_rho0.5.jpg>
 Package pdftex.def Info: figure/3D_nu20_rho0.5.jpg  used on input line 475.
 (pdftex.def)             Requested size: 140.92792pt x 129.12813pt.
-<figure/3D_nu20_rho0.99.jpg, id=433, 878.28125pt x 658.46pt>
+<figure/3D_nu20_rho0.99.jpg, id=435, 878.28125pt x 658.46pt>
 File: figure/3D_nu20_rho0.99.jpg Graphic file (type jpg)
 <use figure/3D_nu20_rho0.99.jpg>
 Package pdftex.def Info: figure/3D_nu20_rho0.99.jpg  used on input line 476.
 (pdftex.def)             Requested size: 140.92792pt x 129.12813pt.
-<figure/3D_nu50_rho0.01.jpg, id=435, 878.28125pt x 658.46pt>
+<figure/3D_nu50_rho0.01.jpg, id=437, 878.28125pt x 658.46pt>
 File: figure/3D_nu50_rho0.01.jpg Graphic file (type jpg)
 <use figure/3D_nu50_rho0.01.jpg>
 Package pdftex.def Info: figure/3D_nu50_rho0.01.jpg  used on input line 481.
 (pdftex.def)             Requested size: 140.92792pt x 129.12813pt.
-<figure/3D_nu50_rho0.5.jpg, id=437, 878.28125pt x 658.46pt>
+<figure/3D_nu50_rho0.5.jpg, id=439, 878.28125pt x 658.46pt>
 File: figure/3D_nu50_rho0.5.jpg Graphic file (type jpg)
 <use figure/3D_nu50_rho0.5.jpg>
 Package pdftex.def Info: figure/3D_nu50_rho0.5.jpg  used on input line 482.
 (pdftex.def)             Requested size: 140.92792pt x 129.12813pt.
-<figure/3D_nu50_rho0.99.jpg, id=439, 878.28125pt x 658.46pt>
+<figure/3D_nu50_rho0.99.jpg, id=441, 878.28125pt x 658.46pt>
 File: figure/3D_nu50_rho0.99.jpg Graphic file (type jpg)
 <use figure/3D_nu50_rho0.99.jpg>
 Package pdftex.def Info: figure/3D_nu50_rho0.99.jpg  used on input line 483.
 (pdftex.def)             Requested size: 140.92792pt x 129.12813pt.
-<figure/3D_nu200_rho0.01.jpg, id=441, 878.28125pt x 658.46pt>
+<figure/3D_nu200_rho0.01.jpg, id=443, 878.28125pt x 658.46pt>
 File: figure/3D_nu200_rho0.01.jpg Graphic file (type jpg)
 <use figure/3D_nu200_rho0.01.jpg>
 Package pdftex.def Info: figure/3D_nu200_rho0.01.jpg  used on input line 488.
 (pdftex.def)             Requested size: 140.92792pt x 129.12813pt.
-<figure/3D_nu200_rho0.5.jpg, id=443, 878.28125pt x 658.46pt>
+<figure/3D_nu200_rho0.5.jpg, id=445, 878.28125pt x 658.46pt>
 File: figure/3D_nu200_rho0.5.jpg Graphic file (type jpg)
 <use figure/3D_nu200_rho0.5.jpg>
 Package pdftex.def Info: figure/3D_nu200_rho0.5.jpg  used on input line 489.
 (pdftex.def)             Requested size: 140.92792pt x 129.12813pt.
-<figure/3D_nu200_rho0.99.jpg, id=445, 878.28125pt x 658.46pt>
+<figure/3D_nu200_rho0.99.jpg, id=447, 878.28125pt x 658.46pt>
 File: figure/3D_nu200_rho0.99.jpg Graphic file (type jpg)
 <use figure/3D_nu200_rho0.99.jpg>
 Package pdftex.def Info: figure/3D_nu200_rho0.99.jpg  used on input line 490.
@@ -1282,49 +1282,49 @@ l.494 \clearpage
 ./figure/3D_nu20_rho0.99.jpg> <./figure/3D_nu50_rho0.01.jpg> <./figure/3D_nu50_
 rho0.5.jpg> <./figure/3D_nu50_rho0.99.jpg> <./figure/3D_nu200_rho0.01.jpg> <./f
 igure/3D_nu200_rho0.5.jpg> <./figure/3D_nu200_rho0.99.jpg>]
-<figure/2D_rho1_0.01_rho2_0.01.jpg, id=488, 1124.2pt x 843.15pt>
+<figure/2D_rho1_0.01_rho2_0.01.jpg, id=490, 1124.2pt x 843.15pt>
 File: figure/2D_rho1_0.01_rho2_0.01.jpg Graphic file (type jpg)
 <use figure/2D_rho1_0.01_rho2_0.01.jpg>
 Package pdftex.def Info: figure/2D_rho1_0.01_rho2_0.01.jpg  used on input line 
 507.
 (pdftex.def)             Requested size: 140.92792pt x 121.83426pt.
-<figure/2D_rho1_0.5_rho2_0.5.jpg, id=490, 1124.2pt x 843.15pt>
+<figure/2D_rho1_0.5_rho2_0.5.jpg, id=492, 1124.2pt x 843.15pt>
 File: figure/2D_rho1_0.5_rho2_0.5.jpg Graphic file (type jpg)
 <use figure/2D_rho1_0.5_rho2_0.5.jpg>
 Package pdftex.def Info: figure/2D_rho1_0.5_rho2_0.5.jpg  used on input line 50
 8.
 (pdftex.def)             Requested size: 140.92792pt x 121.83426pt.
-<figure/2D_rho1_0.99_rho2_0.99.jpg, id=492, 1124.2pt x 843.15pt>
+<figure/2D_rho1_0.99_rho2_0.99.jpg, id=494, 1124.2pt x 843.15pt>
 File: figure/2D_rho1_0.99_rho2_0.99.jpg Graphic file (type jpg)
 <use figure/2D_rho1_0.99_rho2_0.99.jpg>
 Package pdftex.def Info: figure/2D_rho1_0.99_rho2_0.99.jpg  used on input line 
 509.
 (pdftex.def)             Requested size: 140.92792pt x 121.83426pt.
-<figure/3D_rho1_0.01_rho2_0.01_rho3_0.01.jpg, id=494, 1124.2pt x 843.15pt>
+<figure/3D_rho1_0.01_rho2_0.01_rho3_0.01.jpg, id=496, 1124.2pt x 843.15pt>
 File: figure/3D_rho1_0.01_rho2_0.01_rho3_0.01.jpg Graphic file (type jpg)
 <use figure/3D_rho1_0.01_rho2_0.01_rho3_0.01.jpg>
 Package pdftex.def Info: figure/3D_rho1_0.01_rho2_0.01_rho3_0.01.jpg  used on i
 nput line 514.
 (pdftex.def)             Requested size: 140.92792pt x 121.83426pt.
-<figure/3D_rho1_0.5_rho2_0.5_rho3_0.5.jpg, id=496, 1124.2pt x 843.15pt>
+<figure/3D_rho1_0.5_rho2_0.5_rho3_0.5.jpg, id=498, 1124.2pt x 843.15pt>
 File: figure/3D_rho1_0.5_rho2_0.5_rho3_0.5.jpg Graphic file (type jpg)
 <use figure/3D_rho1_0.5_rho2_0.5_rho3_0.5.jpg>
 Package pdftex.def Info: figure/3D_rho1_0.5_rho2_0.5_rho3_0.5.jpg  used on inpu
 t line 515.
 (pdftex.def)             Requested size: 140.92792pt x 121.83426pt.
-<figure/3D_rho1_0.99_rho2_0.99_rho3_0.99.jpg, id=498, 1124.2pt x 843.15pt>
+<figure/3D_rho1_0.99_rho2_0.99_rho3_0.99.jpg, id=500, 1124.2pt x 843.15pt>
 File: figure/3D_rho1_0.99_rho2_0.99_rho3_0.99.jpg Graphic file (type jpg)
 <use figure/3D_rho1_0.99_rho2_0.99_rho3_0.99.jpg>
 Package pdftex.def Info: figure/3D_rho1_0.99_rho2_0.99_rho3_0.99.jpg  used on i
 nput line 516.
 (pdftex.def)             Requested size: 140.92792pt x 121.83426pt.
-<figure/2D_rho1_0.01_rho2_0.5.jpg, id=500, 1124.2pt x 843.15pt>
+<figure/2D_rho1_0.01_rho2_0.5.jpg, id=502, 1124.2pt x 843.15pt>
 File: figure/2D_rho1_0.01_rho2_0.5.jpg Graphic file (type jpg)
 <use figure/2D_rho1_0.01_rho2_0.5.jpg>
 Package pdftex.def Info: figure/2D_rho1_0.01_rho2_0.5.jpg  used on input line 5
 23.
 (pdftex.def)             Requested size: 140.92792pt x 127.13527pt.
-<figure/2D_rho1_0.5_rho2_0.99.jpg, id=502, 1124.2pt x 843.15pt>
+<figure/2D_rho1_0.5_rho2_0.99.jpg, id=504, 1124.2pt x 843.15pt>
 File: figure/2D_rho1_0.5_rho2_0.99.jpg Graphic file (type jpg)
 <use figure/2D_rho1_0.5_rho2_0.99.jpg>
 Package pdftex.def Info: figure/2D_rho1_0.5_rho2_0.99.jpg  used on input line 5
@@ -1342,7 +1342,7 @@ l.533
 > <./figure/2D_rho1_0.99_rho2_0.99.jpg> <./figure/3D_rho1_0.01_rho2_0.01_rho3_0
 .01.jpg> <./figure/3D_rho1_0.5_rho2_0.5_rho3_0.5.jpg> <./figure/3D_rho1_0.99_rh
 o2_0.99_rho3_0.99.jpg>]
-<figure/tstatpeak.png, id=531, 1517.67pt x 546.04pt>
+<figure/tstatpeak.png, id=534, 1517.67pt x 546.04pt>
 File: figure/tstatpeak.png Graphic file (type png)
 <use figure/tstatpeak.png>
 Package pdftex.def Info: figure/tstatpeak.png  used on input line 549.
@@ -1365,365 +1365,353 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.2}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.587 ...ms Neuroscienceat Washington University.}
-                                                  ] [16] (./main.bbl) [17]
-[18] Excluding 'comment' comment. [19]
-
-LaTeX Warning: Reference `eqn.a3' on page 20 undefined on input line 780.
-
+l.588 
+      ] [16] (./main.bbl) [17] [18] Excluding 'comment' comment. [19]
 <figure/covariance function_3D.png, id=594, 788.9475pt x 540.0175pt>
 File: figure/covariance function_3D.png Graphic file (type png)
 <use figure/covariance function_3D.png>
 Package pdftex.def Info: figure/covariance function_3D.png  used on input line 
-793.
+789.
 (pdftex.def)             Requested size: 227.62204pt x 155.80177pt.
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 797.
-
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 797.
+(hyperref)                removing `math shift' on input line 793.
 
-[20
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 793.
+
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 8
+05.
+(/usr/local/texlive/2024/texmf-dist/tex/latex/psnfss/ts1ptm.fd
+File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
+) [20
 pdfTeX warning (ext4): destination with the same identifier (name{figure.10}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.805 T
-       he idea of this $pp$ plot is similar to the one used in \cite{schwart...
- <./figure/covariance function_3D.png>]
-LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 8
-09.
-
-(/usr/local/texlive/2024/texmf-dist/tex/latex/psnfss/ts1ptm.fd
-File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
-)
-<figure/Armin_Fabian_method.jpg, id=615, 1124.2pt x 843.15pt>
+l.806     \item P
+                 lot $p(i)$ vs. $p(i)$ and $q(i)$ vs. $p(i)$ ($pp$ plot). <./fi
+gure/covariance function_3D.png>]
+<figure/Armin_Fabian_method.jpg, id=614, 1124.2pt x 843.15pt>
 File: figure/Armin_Fabian_method.jpg Graphic file (type jpg)
 <use figure/Armin_Fabian_method.jpg>
-Package pdftex.def Info: figure/Armin_Fabian_method.jpg  used on input line 833
+Package pdftex.def Info: figure/Armin_Fabian_method.jpg  used on input line 829
 .
 (pdftex.def)             Requested size: 140.92792pt x 121.83426pt.
-<figure/new_method.jpg, id=617, 1124.2pt x 843.15pt>
+<figure/new_method.jpg, id=616, 1124.2pt x 843.15pt>
 File: figure/new_method.jpg Graphic file (type jpg)
 <use figure/new_method.jpg>
-Package pdftex.def Info: figure/new_method.jpg  used on input line 834.
+Package pdftex.def Info: figure/new_method.jpg  used on input line 830.
 (pdftex.def)             Requested size: 140.92792pt x 121.83426pt.
-<figure/2D_rho0.01_nondiag.jpg, id=629, 878.28125pt x 658.46pt>
+<figure/2D_rho0.01_nondiag.jpg, id=628, 878.28125pt x 658.46pt>
 File: figure/2D_rho0.01_nondiag.jpg Graphic file (type jpg)
 <use figure/2D_rho0.01_nondiag.jpg>
-Package pdftex.def Info: figure/2D_rho0.01_nondiag.jpg  used on input line 849.
+Package pdftex.def Info: figure/2D_rho0.01_nondiag.jpg  used on input line 845.
 
 (pdftex.def)             Requested size: 140.92792pt x 127.3274pt.
-<figure/2D_rho0.5_nondiag.jpg, id=631, 878.28125pt x 658.46pt>
+<figure/2D_rho0.5_nondiag.jpg, id=630, 878.28125pt x 658.46pt>
 File: figure/2D_rho0.5_nondiag.jpg Graphic file (type jpg)
 <use figure/2D_rho0.5_nondiag.jpg>
-Package pdftex.def Info: figure/2D_rho0.5_nondiag.jpg  used on input line 850.
+Package pdftex.def Info: figure/2D_rho0.5_nondiag.jpg  used on input line 846.
 (pdftex.def)             Requested size: 140.92792pt x 127.3274pt.
-<figure/2D_rho0.99_nondiag.jpg, id=633, 878.28125pt x 658.46pt>
+<figure/2D_rho0.99_nondiag.jpg, id=632, 878.28125pt x 658.46pt>
 File: figure/2D_rho0.99_nondiag.jpg Graphic file (type jpg)
 <use figure/2D_rho0.99_nondiag.jpg>
-Package pdftex.def Info: figure/2D_rho0.99_nondiag.jpg  used on input line 852.
+Package pdftex.def Info: figure/2D_rho0.99_nondiag.jpg  used on input line 848.
 
 (pdftex.def)             Requested size: 140.92792pt x 127.3274pt.
-<figure/3D_rho0.01_nondiag.jpg, id=635, 878.28125pt x 658.46pt>
+<figure/3D_rho0.01_nondiag.jpg, id=634, 878.28125pt x 658.46pt>
 File: figure/3D_rho0.01_nondiag.jpg Graphic file (type jpg)
 <use figure/3D_rho0.01_nondiag.jpg>
-Package pdftex.def Info: figure/3D_rho0.01_nondiag.jpg  used on input line 857.
+Package pdftex.def Info: figure/3D_rho0.01_nondiag.jpg  used on input line 853.
 
 (pdftex.def)             Requested size: 140.92792pt x 127.3274pt.
-<figure/3D_rho0.5_nondiag.jpg, id=637, 878.28125pt x 658.46pt>
+<figure/3D_rho0.5_nondiag.jpg, id=636, 878.28125pt x 658.46pt>
 File: figure/3D_rho0.5_nondiag.jpg Graphic file (type jpg)
 <use figure/3D_rho0.5_nondiag.jpg>
-Package pdftex.def Info: figure/3D_rho0.5_nondiag.jpg  used on input line 858.
+Package pdftex.def Info: figure/3D_rho0.5_nondiag.jpg  used on input line 854.
 (pdftex.def)             Requested size: 140.92792pt x 127.3274pt.
-<figure/3D_rho0.99_nondiag.jpg, id=639, 878.28125pt x 658.46pt>
+<figure/3D_rho0.99_nondiag.jpg, id=638, 878.28125pt x 658.46pt>
 File: figure/3D_rho0.99_nondiag.jpg Graphic file (type jpg)
 <use figure/3D_rho0.99_nondiag.jpg>
-Package pdftex.def Info: figure/3D_rho0.99_nondiag.jpg  used on input line 860.
+Package pdftex.def Info: figure/3D_rho0.99_nondiag.jpg  used on input line 856.
 
 (pdftex.def)             Requested size: 140.92792pt x 127.3274pt.
- [21
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\hbox' on input line 862.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\mathsurround' on input line 862.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\z@' on input line 862.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\unskip' on input line 862.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@@italiccorr' on input line 862.
+
+<figure/2D_rho0.01.jpg, id=649, 878.28125pt x 658.46pt>
+File: figure/2D_rho0.01.jpg Graphic file (type jpg)
+<use figure/2D_rho0.01.jpg>
+Package pdftex.def Info: figure/2D_rho0.01.jpg  used on input line 872.
+(pdftex.def)             Requested size: 140.92792pt x 127.3274pt.
+<figure/2D_rho0.5.jpg, id=651, 878.28125pt x 658.46pt>
+File: figure/2D_rho0.5.jpg Graphic file (type jpg)
+<use figure/2D_rho0.5.jpg>
+Package pdftex.def Info: figure/2D_rho0.5.jpg  used on input line 873.
+(pdftex.def)             Requested size: 140.92792pt x 127.3274pt.
+<figure/2D_rho0.99.jpg, id=653, 878.28125pt x 658.46pt>
+File: figure/2D_rho0.99.jpg Graphic file (type jpg)
+<use figure/2D_rho0.99.jpg>
+Package pdftex.def Info: figure/2D_rho0.99.jpg  used on input line 875.
+(pdftex.def)             Requested size: 140.92792pt x 127.3274pt.
+<figure/3D_rho0.01.jpg, id=655, 878.28125pt x 658.46pt>
+File: figure/3D_rho0.01.jpg Graphic file (type jpg)
+<use figure/3D_rho0.01.jpg>
+Package pdftex.def Info: figure/3D_rho0.01.jpg  used on input line 880.
+(pdftex.def)             Requested size: 140.92792pt x 127.3274pt.
+<figure/3D_rho0.5.jpg, id=657, 878.28125pt x 658.46pt>
+File: figure/3D_rho0.5.jpg Graphic file (type jpg)
+<use figure/3D_rho0.5.jpg>
+Package pdftex.def Info: figure/3D_rho0.5.jpg  used on input line 881.
+(pdftex.def)             Requested size: 140.92792pt x 127.3274pt.
+<figure/3D_rho0.99.jpg, id=659, 878.28125pt x 658.46pt>
+File: figure/3D_rho0.99.jpg Graphic file (type jpg)
+<use figure/3D_rho0.99.jpg>
+Package pdftex.def Info: figure/3D_rho0.99.jpg  used on input line 883.
+(pdftex.def)             Requested size: 140.92792pt x 127.3274pt.
+[21
 pdfTeX warning (ext4): destination with the same identifier (name{figure.11}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.862 \end{figure}
-                   <./figure/Armin_Fabian_method.jpg> <./figure/new_method.jpg>
-]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\hbox' on input line 866.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mathsurround' on input line 866.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\z@' on input line 866.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\unskip' on input line 866.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@@italiccorr' on input line 866.
-
-<figure/2D_rho0.01.jpg, id=657, 878.28125pt x 658.46pt>
-File: figure/2D_rho0.01.jpg Graphic file (type jpg)
-<use figure/2D_rho0.01.jpg>
-Package pdftex.def Info: figure/2D_rho0.01.jpg  used on input line 876.
-(pdftex.def)             Requested size: 140.92792pt x 127.3274pt.
-<figure/2D_rho0.5.jpg, id=659, 878.28125pt x 658.46pt>
-File: figure/2D_rho0.5.jpg Graphic file (type jpg)
-<use figure/2D_rho0.5.jpg>
-Package pdftex.def Info: figure/2D_rho0.5.jpg  used on input line 877.
-(pdftex.def)             Requested size: 140.92792pt x 127.3274pt.
-<figure/2D_rho0.99.jpg, id=661, 878.28125pt x 658.46pt>
-File: figure/2D_rho0.99.jpg Graphic file (type jpg)
-<use figure/2D_rho0.99.jpg>
-Package pdftex.def Info: figure/2D_rho0.99.jpg  used on input line 879.
-(pdftex.def)             Requested size: 140.92792pt x 127.3274pt.
-<figure/3D_rho0.01.jpg, id=663, 878.28125pt x 658.46pt>
-File: figure/3D_rho0.01.jpg Graphic file (type jpg)
-<use figure/3D_rho0.01.jpg>
-Package pdftex.def Info: figure/3D_rho0.01.jpg  used on input line 884.
-(pdftex.def)             Requested size: 140.92792pt x 127.3274pt.
-<figure/3D_rho0.5.jpg, id=665, 878.28125pt x 658.46pt>
-File: figure/3D_rho0.5.jpg Graphic file (type jpg)
-<use figure/3D_rho0.5.jpg>
-Package pdftex.def Info: figure/3D_rho0.5.jpg  used on input line 885.
-(pdftex.def)             Requested size: 140.92792pt x 127.3274pt.
-<figure/3D_rho0.99.jpg, id=667, 878.28125pt x 658.46pt>
-File: figure/3D_rho0.99.jpg Graphic file (type jpg)
-<use figure/3D_rho0.99.jpg>
-Package pdftex.def Info: figure/3D_rho0.99.jpg  used on input line 887.
-(pdftex.def)             Requested size: 140.92792pt x 127.3274pt.
-Excluding 'comment' comment. [22
+l.886 
+       <./figure/Armin_Fabian_method.jpg> <./figure/new_method.jpg>]
+Excluding 'comment' comment.
+<figure/presmooth_3D.jpg, id=673, 1124.2pt x 843.15pt>
+File: figure/presmooth_3D.jpg Graphic file (type jpg)
+<use figure/presmooth_3D.jpg>
+Package pdftex.def Info: figure/presmooth_3D.jpg  used on input line 922.
+(pdftex.def)             Requested size: 170.71652pt x 128.03662pt.
+<figure/Aftersmooth_3D.jpg, id=674, 1124.2pt x 843.15pt>
+File: figure/Aftersmooth_3D.jpg Graphic file (type jpg)
+<use figure/Aftersmooth_3D.jpg>
+Package pdftex.def Info: figure/Aftersmooth_3D.jpg  used on input line 923.
+(pdftex.def)             Requested size: 170.71652pt x 128.03662pt.
+<figure/3D_cubic_10.jpg, id=675, 1124.2pt x 843.15pt>
+File: figure/3D_cubic_10.jpg Graphic file (type jpg)
+<use figure/3D_cubic_10.jpg>
+Package pdftex.def Info: figure/3D_cubic_10.jpg  used on input line 929.
+(pdftex.def)             Requested size: 142.26378pt x 106.69289pt.
+<figure/3D_cubic_50000.jpg, id=676, 1124.2pt x 843.15pt>
+File: figure/3D_cubic_50000.jpg Graphic file (type jpg)
+<use figure/3D_cubic_50000.jpg>
+Package pdftex.def Info: figure/3D_cubic_50000.jpg  used on input line 930.
+(pdftex.def)             Requested size: 142.26378pt x 106.69289pt.
+<figure/3D_cubic_99990.jpg, id=677, 1124.2pt x 843.15pt>
+File: figure/3D_cubic_99990.jpg Graphic file (type jpg)
+<use figure/3D_cubic_99990.jpg>
+Package pdftex.def Info: figure/3D_cubic_99990.jpg  used on input line 931.
+(pdftex.def)             Requested size: 142.26378pt x 106.69289pt.
+ [22
 pdfTeX warning (ext4): destination with the same identifier (name{figure.12}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.915 \item U
-             se the Cubic spline smoothing to smooth the matrix across $\rho$; 
-<./figure/2D_rho0.01_nondiag.jpg> <./figure/2D_rho0.5_nondiag.jpg> <./figure/2D
-_rho0.99_nondiag.jpg> <./figure/3D_rho0.01_nondiag.jpg> <./figure/3D_rho0.5_non
-diag.jpg> <./figure/3D_rho0.99_nondiag.jpg>]
-<figure/presmooth_3D.jpg, id=687, 1124.2pt x 843.15pt>
-File: figure/presmooth_3D.jpg Graphic file (type jpg)
-<use figure/presmooth_3D.jpg>
-Package pdftex.def Info: figure/presmooth_3D.jpg  used on input line 923.
-(pdftex.def)             Requested size: 170.71652pt x 128.03662pt.
-<figure/Aftersmooth_3D.jpg, id=688, 1124.2pt x 843.15pt>
-File: figure/Aftersmooth_3D.jpg Graphic file (type jpg)
-<use figure/Aftersmooth_3D.jpg>
-Package pdftex.def Info: figure/Aftersmooth_3D.jpg  used on input line 924.
-(pdftex.def)             Requested size: 170.71652pt x 128.03662pt.
-<figure/3D_cubic_10.jpg, id=689, 1124.2pt x 843.15pt>
-File: figure/3D_cubic_10.jpg Graphic file (type jpg)
-<use figure/3D_cubic_10.jpg>
-Package pdftex.def Info: figure/3D_cubic_10.jpg  used on input line 930.
-(pdftex.def)             Requested size: 142.26378pt x 106.69289pt.
-<figure/3D_cubic_50000.jpg, id=690, 1124.2pt x 843.15pt>
-File: figure/3D_cubic_50000.jpg Graphic file (type jpg)
-<use figure/3D_cubic_50000.jpg>
-Package pdftex.def Info: figure/3D_cubic_50000.jpg  used on input line 931.
-(pdftex.def)             Requested size: 142.26378pt x 106.69289pt.
-<figure/3D_cubic_99990.jpg, id=691, 1124.2pt x 843.15pt>
-File: figure/3D_cubic_99990.jpg Graphic file (type jpg)
-<use figure/3D_cubic_99990.jpg>
-Package pdftex.def Info: figure/3D_cubic_99990.jpg  used on input line 932.
-(pdftex.def)             Requested size: 142.26378pt x 106.69289pt.
- [23
+l.936 
+       <./figure/2D_rho0.01_nondiag.jpg> <./figure/2D_rho0.5_nondiag.jpg> <./fi
+gure/2D_rho0.99_nondiag.jpg> <./figure/3D_rho0.01_nondiag.jpg> <./figure/3D_rho
+0.5_nondiag.jpg> <./figure/3D_rho0.99_nondiag.jpg>] [23
 pdfTeX warning (ext4): destination with the same identifier (name{figure.13}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.938 I
-       n addition, we explore to what extent the smoothing works in figure \...
-
+l.936 
+      
 pdfTeX warning (ext4): destination with the same identifier (name{figure.14}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.938 I
-       n addition, we explore to what extent the smoothing works in figure \...
- <./figure/presmooth_3D.jpg> <./figure/Aftersmooth_3D.jpg> <./figure/2D_rho0.01
-.jpg> <./figure/2D_rho0.5.jpg> <./figure/2D_rho0.99.jpg> <./figure/3D_rho0.01.j
-pg> <./figure/3D_rho0.5.jpg> <./figure/3D_rho0.99.jpg>]
-Excluding 'comment' comment.
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 972.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 972.
-
-<figure/2D_nu20_rho0.01_gauss.jpg, id=713, 878.28125pt x 658.46pt>
-File: figure/2D_nu20_rho0.01_gauss.jpg Graphic file (type jpg)
-<use figure/2D_nu20_rho0.01_gauss.jpg>
-Package pdftex.def Info: figure/2D_nu20_rho0.01_gauss.jpg  used on input line 9
-82.
-(pdftex.def)             Requested size: 140.92792pt x 129.12813pt.
-<figure/2D_nu20_rho0.5_gauss.jpg, id=715, 878.28125pt x 658.46pt>
-File: figure/2D_nu20_rho0.5_gauss.jpg Graphic file (type jpg)
-<use figure/2D_nu20_rho0.5_gauss.jpg>
-Package pdftex.def Info: figure/2D_nu20_rho0.5_gauss.jpg  used on input line 98
-3.
-(pdftex.def)             Requested size: 140.92792pt x 129.12813pt.
-<figure/2D_nu20_rho0.99_gauss.jpg, id=717, 878.28125pt x 658.46pt>
-File: figure/2D_nu20_rho0.99_gauss.jpg Graphic file (type jpg)
-<use figure/2D_nu20_rho0.99_gauss.jpg>
-Package pdftex.def Info: figure/2D_nu20_rho0.99_gauss.jpg  used on input line 9
-84.
-(pdftex.def)             Requested size: 140.92792pt x 129.12813pt.
-<figure/2D_nu50_rho0.01_gauss.jpg, id=719, 878.28125pt x 658.46pt>
-File: figure/2D_nu50_rho0.01_gauss.jpg Graphic file (type jpg)
-<use figure/2D_nu50_rho0.01_gauss.jpg>
-Package pdftex.def Info: figure/2D_nu50_rho0.01_gauss.jpg  used on input line 9
-89.
-(pdftex.def)             Requested size: 140.92792pt x 129.12813pt.
-<figure/2D_nu50_rho0.5_gauss.jpg, id=721, 878.28125pt x 658.46pt>
-File: figure/2D_nu50_rho0.5_gauss.jpg Graphic file (type jpg)
-<use figure/2D_nu50_rho0.5_gauss.jpg>
-Package pdftex.def Info: figure/2D_nu50_rho0.5_gauss.jpg  used on input line 99
-0.
-(pdftex.def)             Requested size: 140.92792pt x 129.12813pt.
-<figure/2D_nu50_rho0.99_gauss.jpg, id=723, 878.28125pt x 658.46pt>
-File: figure/2D_nu50_rho0.99_gauss.jpg Graphic file (type jpg)
-<use figure/2D_nu50_rho0.99_gauss.jpg>
-Package pdftex.def Info: figure/2D_nu50_rho0.99_gauss.jpg  used on input line 9
-91.
-(pdftex.def)             Requested size: 140.92792pt x 129.12813pt.
-<figure/2D_nu200_rho0.01_gauss.jpg, id=725, 878.28125pt x 658.46pt>
-File: figure/2D_nu200_rho0.01_gauss.jpg Graphic file (type jpg)
-<use figure/2D_nu200_rho0.01_gauss.jpg>
-Package pdftex.def Info: figure/2D_nu200_rho0.01_gauss.jpg  used on input line 
-996.
-(pdftex.def)             Requested size: 140.92792pt x 129.12813pt.
-<figure/2D_nu200_rho0.5_gauss.jpg, id=727, 878.28125pt x 658.46pt>
-File: figure/2D_nu200_rho0.5_gauss.jpg Graphic file (type jpg)
-<use figure/2D_nu200_rho0.5_gauss.jpg>
-Package pdftex.def Info: figure/2D_nu200_rho0.5_gauss.jpg  used on input line 9
-97.
-(pdftex.def)             Requested size: 140.92792pt x 129.12813pt.
-<figure/2D_nu200_rho0.99_gauss.jpg, id=729, 878.28125pt x 658.46pt>
-File: figure/2D_nu200_rho0.99_gauss.jpg Graphic file (type jpg)
-<use figure/2D_nu200_rho0.99_gauss.jpg>
-Package pdftex.def Info: figure/2D_nu200_rho0.99_gauss.jpg  used on input line 
-998.
-(pdftex.def)             Requested size: 140.92792pt x 129.12813pt.
-<figure/3D_nu20_rho0.01_gauss.jpg, id=731, 878.28125pt x 658.46pt>
-File: figure/3D_nu20_rho0.01_gauss.jpg Graphic file (type jpg)
-<use figure/3D_nu20_rho0.01_gauss.jpg>
-Package pdftex.def Info: figure/3D_nu20_rho0.01_gauss.jpg  used on input line 1
-007.
-(pdftex.def)             Requested size: 140.92792pt x 129.12813pt.
-<figure/3D_nu20_rho0.5_gauss.jpg, id=733, 878.28125pt x 658.46pt>
-File: figure/3D_nu20_rho0.5_gauss.jpg Graphic file (type jpg)
-<use figure/3D_nu20_rho0.5_gauss.jpg>
-Package pdftex.def Info: figure/3D_nu20_rho0.5_gauss.jpg  used on input line 10
-08.
-(pdftex.def)             Requested size: 140.92792pt x 129.12813pt.
-<figure/3D_nu20_rho0.99_gauss.jpg, id=735, 878.28125pt x 658.46pt>
-File: figure/3D_nu20_rho0.99_gauss.jpg Graphic file (type jpg)
-<use figure/3D_nu20_rho0.99_gauss.jpg>
-Package pdftex.def Info: figure/3D_nu20_rho0.99_gauss.jpg  used on input line 1
-009.
-(pdftex.def)             Requested size: 140.92792pt x 129.12813pt.
-<figure/3D_nu50_rho0.01_gauss.jpg, id=737, 878.28125pt x 658.46pt>
-File: figure/3D_nu50_rho0.01_gauss.jpg Graphic file (type jpg)
-<use figure/3D_nu50_rho0.01_gauss.jpg>
-Package pdftex.def Info: figure/3D_nu50_rho0.01_gauss.jpg  used on input line 1
-014.
-(pdftex.def)             Requested size: 140.92792pt x 129.12813pt.
-<figure/3D_nu50_rho0.5_gauss.jpg, id=739, 878.28125pt x 658.46pt>
-File: figure/3D_nu50_rho0.5_gauss.jpg Graphic file (type jpg)
-<use figure/3D_nu50_rho0.5_gauss.jpg>
-Package pdftex.def Info: figure/3D_nu50_rho0.5_gauss.jpg  used on input line 10
-15.
-(pdftex.def)             Requested size: 140.92792pt x 129.12813pt.
-<figure/3D_nu50_rho0.99_gauss.jpg, id=741, 878.28125pt x 658.46pt>
-File: figure/3D_nu50_rho0.99_gauss.jpg Graphic file (type jpg)
-<use figure/3D_nu50_rho0.99_gauss.jpg>
-Package pdftex.def Info: figure/3D_nu50_rho0.99_gauss.jpg  used on input line 1
-016.
-(pdftex.def)             Requested size: 140.92792pt x 129.12813pt.
-<figure/3D_nu200_rho0.01_gauss.jpg, id=743, 878.28125pt x 658.46pt>
-File: figure/3D_nu200_rho0.01_gauss.jpg Graphic file (type jpg)
-<use figure/3D_nu200_rho0.01_gauss.jpg>
-Package pdftex.def Info: figure/3D_nu200_rho0.01_gauss.jpg  used on input line 
-1021.
-(pdftex.def)             Requested size: 140.92792pt x 129.12813pt.
-<figure/3D_nu200_rho0.5_gauss.jpg, id=745, 878.28125pt x 658.46pt>
-File: figure/3D_nu200_rho0.5_gauss.jpg Graphic file (type jpg)
-<use figure/3D_nu200_rho0.5_gauss.jpg>
-Package pdftex.def Info: figure/3D_nu200_rho0.5_gauss.jpg  used on input line 1
-022.
-(pdftex.def)             Requested size: 140.92792pt x 129.12813pt.
-<figure/3D_nu200_rho0.99_gauss.jpg, id=747, 878.28125pt x 658.46pt>
-File: figure/3D_nu200_rho0.99_gauss.jpg Graphic file (type jpg)
-<use figure/3D_nu200_rho0.99_gauss.jpg>
-Package pdftex.def Info: figure/3D_nu200_rho0.99_gauss.jpg  used on input line 
-1023.
-(pdftex.def)             Requested size: 140.92792pt x 129.12813pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [24
+l.936 
+      
 pdfTeX warning (ext4): destination with the same identifier (name{figure.15}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1059 \end{equation}
-                      <./figure/3D_cubic_10.jpg> <./figure/3D_cubic_50000.jpg> 
-<./figure/3D_cubic_99990.jpg>]
-<figure/2D_rho1_0.9_rho2_0.9.jpg, id=763, 983.675pt x 737.75626pt>
+l.936 
+       <./figure/presmooth_3D.jpg> <./figure/Aftersmooth_3D.jpg> <./figure/3D_c
+ubic_10.jpg> <./figure/3D_cubic_50000.jpg> <./figure/3D_cubic_99990.jpg> <./fig
+ure/2D_rho0.01.jpg> <./figure/2D_rho0.5.jpg> <./figure/2D_rho0.99.jpg> <./figur
+e/3D_rho0.01.jpg> <./figure/3D_rho0.5.jpg> <./figure/3D_rho0.99.jpg>]
+Excluding 'comment' comment.
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 971.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 971.
+
+<figure/2D_nu20_rho0.01_gauss.jpg, id=714, 878.28125pt x 658.46pt>
+File: figure/2D_nu20_rho0.01_gauss.jpg Graphic file (type jpg)
+<use figure/2D_nu20_rho0.01_gauss.jpg>
+Package pdftex.def Info: figure/2D_nu20_rho0.01_gauss.jpg  used on input line 9
+81.
+(pdftex.def)             Requested size: 140.92792pt x 129.12813pt.
+<figure/2D_nu20_rho0.5_gauss.jpg, id=716, 878.28125pt x 658.46pt>
+File: figure/2D_nu20_rho0.5_gauss.jpg Graphic file (type jpg)
+<use figure/2D_nu20_rho0.5_gauss.jpg>
+Package pdftex.def Info: figure/2D_nu20_rho0.5_gauss.jpg  used on input line 98
+2.
+(pdftex.def)             Requested size: 140.92792pt x 129.12813pt.
+<figure/2D_nu20_rho0.99_gauss.jpg, id=718, 878.28125pt x 658.46pt>
+File: figure/2D_nu20_rho0.99_gauss.jpg Graphic file (type jpg)
+<use figure/2D_nu20_rho0.99_gauss.jpg>
+Package pdftex.def Info: figure/2D_nu20_rho0.99_gauss.jpg  used on input line 9
+83.
+(pdftex.def)             Requested size: 140.92792pt x 129.12813pt.
+<figure/2D_nu50_rho0.01_gauss.jpg, id=720, 878.28125pt x 658.46pt>
+File: figure/2D_nu50_rho0.01_gauss.jpg Graphic file (type jpg)
+<use figure/2D_nu50_rho0.01_gauss.jpg>
+Package pdftex.def Info: figure/2D_nu50_rho0.01_gauss.jpg  used on input line 9
+88.
+(pdftex.def)             Requested size: 140.92792pt x 129.12813pt.
+<figure/2D_nu50_rho0.5_gauss.jpg, id=722, 878.28125pt x 658.46pt>
+File: figure/2D_nu50_rho0.5_gauss.jpg Graphic file (type jpg)
+<use figure/2D_nu50_rho0.5_gauss.jpg>
+Package pdftex.def Info: figure/2D_nu50_rho0.5_gauss.jpg  used on input line 98
+9.
+(pdftex.def)             Requested size: 140.92792pt x 129.12813pt.
+<figure/2D_nu50_rho0.99_gauss.jpg, id=724, 878.28125pt x 658.46pt>
+File: figure/2D_nu50_rho0.99_gauss.jpg Graphic file (type jpg)
+<use figure/2D_nu50_rho0.99_gauss.jpg>
+Package pdftex.def Info: figure/2D_nu50_rho0.99_gauss.jpg  used on input line 9
+90.
+(pdftex.def)             Requested size: 140.92792pt x 129.12813pt.
+<figure/2D_nu200_rho0.01_gauss.jpg, id=726, 878.28125pt x 658.46pt>
+File: figure/2D_nu200_rho0.01_gauss.jpg Graphic file (type jpg)
+<use figure/2D_nu200_rho0.01_gauss.jpg>
+Package pdftex.def Info: figure/2D_nu200_rho0.01_gauss.jpg  used on input line 
+995.
+(pdftex.def)             Requested size: 140.92792pt x 129.12813pt.
+<figure/2D_nu200_rho0.5_gauss.jpg, id=728, 878.28125pt x 658.46pt>
+File: figure/2D_nu200_rho0.5_gauss.jpg Graphic file (type jpg)
+<use figure/2D_nu200_rho0.5_gauss.jpg>
+Package pdftex.def Info: figure/2D_nu200_rho0.5_gauss.jpg  used on input line 9
+96.
+(pdftex.def)             Requested size: 140.92792pt x 129.12813pt.
+<figure/2D_nu200_rho0.99_gauss.jpg, id=730, 878.28125pt x 658.46pt>
+File: figure/2D_nu200_rho0.99_gauss.jpg Graphic file (type jpg)
+<use figure/2D_nu200_rho0.99_gauss.jpg>
+Package pdftex.def Info: figure/2D_nu200_rho0.99_gauss.jpg  used on input line 
+997.
+(pdftex.def)             Requested size: 140.92792pt x 129.12813pt.
+<figure/3D_nu20_rho0.01_gauss.jpg, id=732, 878.28125pt x 658.46pt>
+File: figure/3D_nu20_rho0.01_gauss.jpg Graphic file (type jpg)
+<use figure/3D_nu20_rho0.01_gauss.jpg>
+Package pdftex.def Info: figure/3D_nu20_rho0.01_gauss.jpg  used on input line 1
+006.
+(pdftex.def)             Requested size: 140.92792pt x 129.12813pt.
+<figure/3D_nu20_rho0.5_gauss.jpg, id=734, 878.28125pt x 658.46pt>
+File: figure/3D_nu20_rho0.5_gauss.jpg Graphic file (type jpg)
+<use figure/3D_nu20_rho0.5_gauss.jpg>
+Package pdftex.def Info: figure/3D_nu20_rho0.5_gauss.jpg  used on input line 10
+07.
+(pdftex.def)             Requested size: 140.92792pt x 129.12813pt.
+<figure/3D_nu20_rho0.99_gauss.jpg, id=736, 878.28125pt x 658.46pt>
+File: figure/3D_nu20_rho0.99_gauss.jpg Graphic file (type jpg)
+<use figure/3D_nu20_rho0.99_gauss.jpg>
+Package pdftex.def Info: figure/3D_nu20_rho0.99_gauss.jpg  used on input line 1
+008.
+(pdftex.def)             Requested size: 140.92792pt x 129.12813pt.
+<figure/3D_nu50_rho0.01_gauss.jpg, id=738, 878.28125pt x 658.46pt>
+File: figure/3D_nu50_rho0.01_gauss.jpg Graphic file (type jpg)
+<use figure/3D_nu50_rho0.01_gauss.jpg>
+Package pdftex.def Info: figure/3D_nu50_rho0.01_gauss.jpg  used on input line 1
+013.
+(pdftex.def)             Requested size: 140.92792pt x 129.12813pt.
+<figure/3D_nu50_rho0.5_gauss.jpg, id=740, 878.28125pt x 658.46pt>
+File: figure/3D_nu50_rho0.5_gauss.jpg Graphic file (type jpg)
+<use figure/3D_nu50_rho0.5_gauss.jpg>
+Package pdftex.def Info: figure/3D_nu50_rho0.5_gauss.jpg  used on input line 10
+14.
+(pdftex.def)             Requested size: 140.92792pt x 129.12813pt.
+<figure/3D_nu50_rho0.99_gauss.jpg, id=742, 878.28125pt x 658.46pt>
+File: figure/3D_nu50_rho0.99_gauss.jpg Graphic file (type jpg)
+<use figure/3D_nu50_rho0.99_gauss.jpg>
+Package pdftex.def Info: figure/3D_nu50_rho0.99_gauss.jpg  used on input line 1
+015.
+(pdftex.def)             Requested size: 140.92792pt x 129.12813pt.
+<figure/3D_nu200_rho0.01_gauss.jpg, id=744, 878.28125pt x 658.46pt>
+File: figure/3D_nu200_rho0.01_gauss.jpg Graphic file (type jpg)
+<use figure/3D_nu200_rho0.01_gauss.jpg>
+Package pdftex.def Info: figure/3D_nu200_rho0.01_gauss.jpg  used on input line 
+1020.
+(pdftex.def)             Requested size: 140.92792pt x 129.12813pt.
+<figure/3D_nu200_rho0.5_gauss.jpg, id=746, 878.28125pt x 658.46pt>
+File: figure/3D_nu200_rho0.5_gauss.jpg Graphic file (type jpg)
+<use figure/3D_nu200_rho0.5_gauss.jpg>
+Package pdftex.def Info: figure/3D_nu200_rho0.5_gauss.jpg  used on input line 1
+021.
+(pdftex.def)             Requested size: 140.92792pt x 129.12813pt.
+<figure/3D_nu200_rho0.99_gauss.jpg, id=748, 878.28125pt x 658.46pt>
+File: figure/3D_nu200_rho0.99_gauss.jpg Graphic file (type jpg)
+<use figure/3D_nu200_rho0.99_gauss.jpg>
+Package pdftex.def Info: figure/3D_nu200_rho0.99_gauss.jpg  used on input line 
+1022.
+(pdftex.def)             Requested size: 140.92792pt x 129.12813pt.
+<figure/2D_rho1_0.9_rho2_0.9.jpg, id=755, 983.675pt x 737.75626pt>
 File: figure/2D_rho1_0.9_rho2_0.9.jpg Graphic file (type jpg)
 <use figure/2D_rho1_0.9_rho2_0.9.jpg>
 Package pdftex.def Info: figure/2D_rho1_0.9_rho2_0.9.jpg  used on input line 10
-67.
+65.
 (pdftex.def)             Requested size: 140.92792pt x 124.59888pt.
-<figure/2D_rho1_0.93_rho2_0.93.jpg, id=765, 983.675pt x 737.75626pt>
+<figure/2D_rho1_0.93_rho2_0.93.jpg, id=757, 983.675pt x 737.75626pt>
 File: figure/2D_rho1_0.93_rho2_0.93.jpg Graphic file (type jpg)
 <use figure/2D_rho1_0.93_rho2_0.93.jpg>
 Package pdftex.def Info: figure/2D_rho1_0.93_rho2_0.93.jpg  used on input line 
-1068.
+1066.
 (pdftex.def)             Requested size: 140.92792pt x 124.59888pt.
-<figure/2D_rho1_0.95_rho2_0.95.jpg, id=767, 983.675pt x 737.75626pt>
+<figure/2D_rho1_0.95_rho2_0.95.jpg, id=759, 983.675pt x 737.75626pt>
 File: figure/2D_rho1_0.95_rho2_0.95.jpg Graphic file (type jpg)
 <use figure/2D_rho1_0.95_rho2_0.95.jpg>
 Package pdftex.def Info: figure/2D_rho1_0.95_rho2_0.95.jpg  used on input line 
-1070.
+1068.
 (pdftex.def)             Requested size: 140.92792pt x 124.59888pt.
-<figure/3D_rho1_0.9_rho2_0.9.jpg, id=769, 983.675pt x 737.75626pt>
+<figure/3D_rho1_0.9_rho2_0.9.jpg, id=761, 983.675pt x 737.75626pt>
 File: figure/3D_rho1_0.9_rho2_0.9.jpg Graphic file (type jpg)
 <use figure/3D_rho1_0.9_rho2_0.9.jpg>
 Package pdftex.def Info: figure/3D_rho1_0.9_rho2_0.9.jpg  used on input line 10
-75.
+73.
 (pdftex.def)             Requested size: 140.92792pt x 124.59888pt.
-<figure/3D_rho1_0.93_rho2_0.93.jpg, id=771, 983.675pt x 737.75626pt>
+<figure/3D_rho1_0.93_rho2_0.93.jpg, id=763, 983.675pt x 737.75626pt>
 File: figure/3D_rho1_0.93_rho2_0.93.jpg Graphic file (type jpg)
 <use figure/3D_rho1_0.93_rho2_0.93.jpg>
 Package pdftex.def Info: figure/3D_rho1_0.93_rho2_0.93.jpg  used on input line 
-1076.
+1074.
 (pdftex.def)             Requested size: 140.92792pt x 124.59888pt.
-<figure/3D_rho1_0.95_rho2_0.95.jpg, id=773, 983.675pt x 737.75626pt>
+<figure/3D_rho1_0.95_rho2_0.95.jpg, id=765, 983.675pt x 737.75626pt>
 File: figure/3D_rho1_0.95_rho2_0.95.jpg Graphic file (type jpg)
 <use figure/3D_rho1_0.95_rho2_0.95.jpg>
 Package pdftex.def Info: figure/3D_rho1_0.95_rho2_0.95.jpg  used on input line 
-1078.
+1076.
 (pdftex.def)             Requested size: 140.92792pt x 124.59888pt.
- [25
+[24] [25
 pdfTeX warning (ext4): destination with the same identifier (name{figure.16}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1082 \clearpage
+l.1080 \clearpage
                   <./figure/2D_nu20_rho0.01_gauss.jpg> <./figure/2D_nu20_rho0.5
 _gauss.jpg> <./figure/2D_nu20_rho0.99_gauss.jpg> <./figure/2D_nu50_rho0.01_gaus
 s.jpg> <./figure/2D_nu50_rho0.5_gauss.jpg> <./figure/2D_nu50_rho0.99_gauss.jpg>
@@ -1733,7 +1721,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.17}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1082 \clearpage
+l.1080 \clearpage
                   <./figure/3D_nu20_rho0.01_gauss.jpg> <./figure/3D_nu20_rho0.5
 _gauss.jpg> <./figure/3D_nu20_rho0.99_gauss.jpg> <./figure/3D_nu50_rho0.01_gaus
 s.jpg> <./figure/3D_nu50_rho0.5_gauss.jpg> <./figure/3D_nu50_rho0.99_gauss.jpg>
@@ -1743,12 +1731,12 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.18}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1082 \clearpage
+l.1080 \clearpage
                   <./figure/2D_rho1_0.9_rho2_0.9.jpg> <./figure/2D_rho1_0.93_rh
 o2_0.93.jpg> <./figure/2D_rho1_0.95_rho2_0.95.jpg> <./figure/3D_rho1_0.9_rho2_0
 .9.jpg> <./figure/3D_rho1_0.93_rho2_0.93.jpg> <./figure/3D_rho1_0.95_rho2_0.95.
 jpg>]
-Overfull \hbox (0.93651pt too wide) in paragraph at lines 1090--1118
+Overfull \hbox (0.93651pt too wide) in paragraph at lines 1088--1116
  [] 
  []
 
@@ -1759,27 +1747,23 @@ pdfTeX warning (ext4): destination with the same identifier (name{table.3}) has
  been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.1121 \end{document}
+l.1119 \end{document}
                      ] (./main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
-
-
-LaTeX Warning: There were undefined references.
-
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 43B51DFE52B236382B0B3178CC7FCFEC;7894.
+(rerunfilecheck)             Checksum: F5C807EEBA883DA14116B03DD1DD046E;7919.
  ) 
 Here is how much of TeX's memory you used:
- 30828 strings out of 474116
- 617644 string characters out of 5743682
- 1953187 words of memory out of 5000000
- 52203 multiletter control sequences out of 15000+600000
- 638125 words of font info for 331 fonts, out of 8000000 for 9000
+ 30844 strings out of 474116
+ 617835 string characters out of 5743682
+ 1960187 words of memory out of 5000000
+ 52208 multiletter control sequences out of 15000+600000
+ 643223 words of font info for 338 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 102i,15n,107p,1874b,1034s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 102i,15n,107p,1874b,1032s stack positions out of 10000i,1000n,20000p,200000b,200000s
  </Users/sdavenport/Library/texlive/2024/texmf-var/fonts/pk/ljfour/public/bbm
 /bbm10.600pk></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm
 /cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/
@@ -1803,10 +1787,10 @@ cal/texlive/2024/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texliv
 e/2024/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2024/te
 xmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2024/texmf-dist/f
 onts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (28 pages, 5634382 bytes).
+Output written on main.pdf (28 pages, 5633427 bytes).
 PDF statistics:
- 949 PDF objects out of 1000 (max. 8388607)
- 706 compressed objects within 8 object streams
- 135 named destinations out of 1000 (max. 500000)
- 66141 words of extra memory for PDF output out of 74296 (max. 10000000)
+ 950 PDF objects out of 1000 (max. 8388607)
+ 707 compressed objects within 8 object streams
+ 136 named destinations out of 1000 (max. 500000)
+ 72285 words of extra memory for PDF output out of 74296 (max. 10000000)
 

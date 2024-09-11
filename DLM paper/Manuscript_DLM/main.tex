@@ -175,15 +175,15 @@ The DLM approach of \cite{worsley2005improved} and \cite{taylor2007maxima} provi
 \begin{equation}
 P [Z(s) > u|Z(t) < Z(s), \forall t \in \mathcal{N}_{PC}(s)] = \frac{P\left[\{Z(s) > u\}\cap_{t\in\mathcal{N}_{PC}(s)}\{Z(t) < Z(s)\}\right]}{P[Z(t) < Z(s), \forall t \in \mathcal{N}_{PC}(s)]}. \label{eqn2.9}
 \end{equation}
-Using \nt{the} results of \cite{worsley2005improved} and \cite{taylor2007maxima}, we \nt{can} expand the left hand side of (\ref{eqn2.9}) as $\int_u^{\infty} f_{\text{DLM}}(z) dz$, where $f_{\text{DLM}}(z)$ is the density function of the height distribution. Under the assumption that $Z$ \nt{has a separable Gaussian covariance function}, $f_{\text{DLM}}(z)$ has the form
+Using \nt{the} results of \cite{worsley2005improved} and \cite{taylor2007maxima}, we \nt{can} expand the left hand side of (\ref{eqn2.9}) as $\int_u^{\infty} f_{\text{DLM}}(z) dz$, where $f_{\text{DLM}}(z)$ is the density function of the height distribution. Under the assumption that $Z$ \nt{has a separable covariance function}, \nt{as we show in Appendix \ref{appendix.a2}}, $f_{\text{DLM}}(z)$ has the form
 \begin{align}
 f_{\text{DLM}}(z) = \frac{\prod_{d=1}^DQ(\rho_d,z)\phi(z)}{\int_{-\infty}^\infty\bigg(\prod_{d=1}^DQ(\rho_d,z)\bigg)\phi(z)dz} \label{eqn2.22},
 \end{align}
 where
-\begin{align*}
+\begin{align}
 &h_d = \sqrt{\frac{1-\rho_d}{1+\rho_d}}, \alpha_d = \sin^{-1}\left(\sqrt{(1-\rho_d^2)/2}\right), z^+ = \max(z,0) \nonumber\\
-&Q(\rho_d, z) = 1 - 2\Phi(h_dz^+) + \frac{1}{\pi}\int_{0}^{\alpha_d}\exp\left(-\frac{1}{2}h^2_dz^2/\sin^2\theta\right)d\theta, 
-\end{align*}
+&Q(\rho_d, z) = 1 - 2\Phi(h_dz^+) + \frac{1}{\pi}\int_{0}^{\alpha_d}\exp\left(-\frac{1}{2}h^2_dz^2/\sin^2\theta\right)d\theta, \label{sdfsdf}
+\end{align}
 and $\rho_d$ is the correlation between two voxels along each axis direction $d$, given by $\rho_d = \rho(s, s+v_de_d)$, where $\rho(\cdot,\cdot)$ is introduced in (\ref{eqn2.3}).  This approach also allows for the calculation of the height of local maxima on the boundary of the image or a mask by substituting $Q(\rho_d, z)$ with $1-\Phi(h_dz)$ if a voxel on the boundary only has one neighbor, and with 1 if it has no neighbors. Further details regarding the derivation of (\ref{eqn2.22}) are provided in Appendix \ref{appendix.a2}. Since this \nt{approach} provides a closed form density function, \nt{we shall refer to it as the} analytical DLM (ADLM) method.  
 
 One critical assumption of ADLM is that the correlation function has a specific separable structure. Under this assumption things simplify because conditioned on the center voxel, the distribution of the height of neighboring voxels along a given axis are conditionally independent of the distribution of the height at neighboring voxels along the other (perpendicular) axis directions \nt{as described formally} in the proposition below.
@@ -463,7 +463,7 @@ As discussed in Section \ref{sec3.2}, a Gaussianization approach \nt{can be used
 \includegraphics[trim=70 5 100 5, clip,width=0.3\textwidth]{figure/2D_nu200_rho0.01.jpg}
 \includegraphics[trim=70 5 100 5, clip,width=0.3\textwidth]{figure/2D_nu200_rho0.5.jpg}
 \includegraphics[trim=70 5 100 5, clip,width=0.3\textwidth]{figure/2D_nu200_rho0.99.jpg}
-\caption{Comparing methods for calculating the peak height distribution of a 2D $t$-field with $\nu$ degrees of freedom. From left to right: spatial correlation $\rho = 0.01, 0.5, 0.99$. From top to bottom: $\nu = 20, 50, 200$. The figure is generated based on the comparison of the $p$-values calculated using Gaussian field with same correlation $\rho$, continuous RFT and MCDLM approach. The reference is the true peak height distribution generated from the $t$ field.\label{fig11}}
+\caption{Comparing methods for calculating the peak height distribution of a 2D $t$-field with $\nu$ degrees of freedom. From left to right: spatial correlation $\rho = 0.01, 0.5, 0.99$. From top to bottom: $\nu = 20, 50, 200$. The figure is generated based on the comparison of the $p$-values calculated using continuous RFT, MCDLM and Gaussian random fields with the same distribution as the fields used to generate the $t$-field as a comparison. The reference is the true peak height distribution generated from the $t$ field.\label{fig11}}
 \end{figure}
 
 \begin{figure}[!htp]
@@ -488,14 +488,14 @@ As discussed in Section \ref{sec3.2}, a Gaussianization approach \nt{can be used
 \includegraphics[trim=70 5 100 5, clip,width=0.3\textwidth]{figure/3D_nu200_rho0.01.jpg}
 \includegraphics[trim=70 5 100 5, clip,width=0.3\textwidth]{figure/3D_nu200_rho0.5.jpg}
 \includegraphics[trim=70 5 100 5, clip,width=0.3\textwidth]{figure/3D_nu200_rho0.99.jpg}
-\caption{Comparing methods for calculating the peak height distribution of a 3D $t$-field with $\nu$ degrees of freedom. From left to right: spatial correlation $\rho = 0.01, 0.5, 0.99$. From top to bottom: $\nu = 20, 50, 200$. The figure is generated based on the comparison of the $p$-values calculated using Gaussian field with same correlation $\rho$, continuous RFT and MCDLM approach. The reference is the true peak height distribution generated from the $t$ field. \label{fig12}}
+\caption{Comparing methods for calculating the peak height distribution of a 3D $t$-field with $\nu$ degrees of freedom. From left to right: spatial correlation $\rho = 0.01, 0.5, 0.99$. From top to bottom: $\nu = 20, 50, 200$. The figure is generated based on the comparison of the $p$-values calculated using continuous RFT, MCDLM and Gaussian random fields with the same distribution as the fields used to generate the $t$-field as a comparison. The reference is the true peak height distribution generated from the $t$ field. \label{fig12}}
 \end{figure}
 
 \clearpage
 \subsection{Stationary Gaussian fields with unknown covariance}
 \label{sec4.4}
 
-In Figure \ref{fig13}, we compare the peak height distribution calculated from the MCDLM method using both theoretical (i.e. true) neighborhood covariance (\ref{eqn2.7}) and estimated neighborhood covariance (\ref{eqn5.1}). Figure \ref{fig13} shows that MCDLM with the estimated neighborhood covariance essentially performs as well as MCDLM with the theoretical neighborhood covariance when $\rho = 0.01$ and $0.5$. When $\rho$ increases to 0.99, the MCDLM method with estimated covariance function requires a large number of simulated peaks before it converges. This number decreases with the number of voxels in the image (which is why the performance of the 3D simulations are substantially better than the 2D ones), even when a very large sample size is used to estimate it. Since with $\rho = 0.99$, even with $1000$ instances to estimate the neighborhood covariance the MCDLM method still performs poorly, we investigate more scenarios with $\rho = 0.9, 0.93, 0.95$. The detailed results are included in Appendix \ref{appendix.d5}. Based on the results, we recommend using the MCDLM method with estimated covariance function when $\rho < 0.95$, or FWHM $< 5.2$ in practice.
+In Figure \ref{fig13}, we compare the peak height distribution calculated from the MCDLM method using both theoretical (i.e. true) neighborhood covariance (\ref{eqn2.7}) and estimated neighborhood covariance (\ref{eqn5.1}). Figure \ref{fig13} shows that MCDLM with the estimated neighborhood covariance essentially performs as well as MCDLM with the theoretical neighborhood covariance when $\rho = 0.01$ and $0.5$. When $\rho$ increases to 0.99, the MCDLM method with estimated covariance function requires a large number of simulated peaks before it converges. This number decreases with the number of voxels in the image (which is why the performance of the 3D simulations are substantially better than the 2D ones), even when a very large sample size is used to estimate it. Since with $\rho = 0.99$, even with $1000$ instances to estimate the neighborhood covariance the MCDLM method still performs poorly, we investigate additional scenarios in which $\rho = 0.9, 0.93, 0.95$. The detailed results are included in Appendix \ref{appendix.d5}. Based on the results, we recommend using the MCDLM method with estimated covariance function when $\rho < 0.95$, or FWHM $< 5.2$ in practice.
 
 The results for the second set of (non-isotropic) simulations discussed in Section \ref{sec3.3} are shown in Figure \ref{fig15}. From this figure we see that the estimated version works well when $\rho_1 = 0.01$ and $\rho_2 = 0.5$, and requires a larger number of realizations to converge when $\rho_1 = 0.5$ and $\rho_2 = 0.99$.
 
@@ -516,7 +516,7 @@ The results for the second set of (non-isotropic) simulations discussed in Secti
 \includegraphics[trim=80 5 80 5, clip,width=0.3\textwidth]{figure/3D_rho1_0.99_rho2_0.99_rho3_0.99.jpg}
 \caption{Comparison of the peak height distribution calculated from using MCDLM with different neighborhood covariance for 2D and 3D isotropic Gaussian fields. The covariance functions used here are theoretical covariance function (Tcf) and empirically estimated covariance function (Ecf). The number of random fields used to estimate the covariance function is denoted using nsim. From left to right: $\rho = 0.01, 0.5, 0.99$. \label{fig13}}
 \end{figure}
-\sdcom{Can you generate these plots for $\rho = 0.9$? I'd like to see that if you have it. I think it may be a more interesting one to include here potentially.}
+%\sdcom{Replace the 0.5 plot with the 0.93 plot from the appendix as its more convincing here. And put the 0.5 plot in the Appendix and adjust the text accordingly.}
 
 \begin{figure}[!htp]
 \centering
@@ -527,7 +527,7 @@ The results for the second set of (non-isotropic) simulations discussed in Secti
 
 \section{HCP Task fMRI Results}
 \label{sec5}
-We evaluate the methods on 80 unrelated subjects of the Human Connectome Project (HCP) by testing one of the working memory contrasts. Specifically, we focus on the average contrasts of 2-back and 0-back tasks \citep{davenport2020selective}. Since N-back task is commonly used to measure working memory, and N can be adjusted for task difficulty, such contrasts help to identify the brain regions supporting working memory \citep{kirchner1958age}.  \nt{To ensure that the assumption of stationarity is reasonable we restrict to a mask of the gray matter on which the smoothness can be assumed to be constant see e.g. Figure XXX of \cite{eklund2016cluster}}. 
+We evaluate the methods on 80 unrelated subjects of the Human Connectome Project (HCP) by testing one of the working memory contrasts. Specifically, we focus on the average contrasts of 2-back and 0-back tasks \citep{davenport2020selective}. Since N-back task is commonly used to measure working memory, and N can be adjusted for task difficulty, such contrasts help to identify the brain regions supporting working memory \citep{kirchner1958age}.  \nt{To ensure that the assumption of stationarity is reasonable we restrict to a mask of the gray matter on which the smoothness can be assumed to be constant (personal communication with Thomas E. Nichols), see e.g. Supplementary Figure 19 of \cite{eklund2016cluster}}. 
 
 We perform the peak inference by computing the one-sample $t$-statistics at voxel level and applying MCDLM for $t$-fields to calculate $p$-values for 1101 peaks that we detect. We use both MCDLM based on multivariate $t$-distribution and Gaussianization transformation method described in Section \ref{sec2.4} for the calculation. The isotropy assumption is too strict as assumption as we observe three different correlations \sdcom{something weird here because the correlations are above 1, did you put the wrong number in?}, 1.30 (FWHM = 3.07), 1.39 (FWHM = 3.27) and 1.22 (FWHM = 2.88) in the horizontal, vertical and longitudinal directions, respectively. \nt{Based on our simulations we would expect continuous RFT to be conservative in this setting due to the low smoothness of this data and since it does not work well for $t$-statistics. Instead this setting is ideal for the use of MCDLM with the estimated neighbourhood covariance matrix. We compare the results of both approaches applied to this dataset.}
 
@@ -598,7 +598,7 @@ SD and AS were partially supported by NIH grant R01EB026859.  Data were provided
 \label{appendix.a}
 \subsection{Proof of Proposition \ref{prop1}\label{appendix.a1}}
 \begin{proof}
-Without loss of generality, we assume that $Z$ is mean zero and unit variance. For $s \in S$, taking $\mathcal{N}(s)$ to be the partially connected neighborhood of $s$, for $s_a, s_b \in \mathcal{N}(s)$, we have
+Without loss of generality, we assume that $Z$ is mean zero and unit variance. For $s \in \mathcal{L}$, taking $\mathcal{N}(s)$ to be the partially connected neighborhood of $s$, for $s_a, s_b \in \mathcal{N}(s)$, we have
 \begin{align*}
     \begin{pmatrix} Z(s) \\ Z(s_a) \\ Z(s_b) \end{pmatrix} \sim N\left(\mathbf{0}, \begin{pmatrix} \Sigma_{AA} & \Sigma_{AB} \\ \Sigma_{BA} & \Sigma_{BB} \end{pmatrix}\right),
 \end{align*}
@@ -615,19 +615,24 @@ For $z \in \mathbb{R}$, the covariance of $Z(s_a)$ and $Z(s_b)$ conditional on $
     \end{pmatrix}.
 \end{align*}
 
-Under the assumption that $Z$ is obtained by integrating Gaussian white noise against a separable Gaussian kernel, the off-diagonal entries are 
+Due to the form of the covariance function, the off-diagonal entries are 
 \begin{align*}
     \rho(s_a, s_b) - \rho(s, s_a)\rho(s, s_b) = \rho^{||s_a-s_b||^2} - \rho^{||s_a-s||^2}\rho^{||s_b-s||^2} = \rho^{||s_a-s_b||^2} - \rho^{||s_a-s||^2 + ||s_b-s||^2},
 \end{align*}
-where $\rho$ is the correlation between two adjacent voxels and $||\cdot||$ denotes the Euclidean norm. Thus, if $||s_a-s_b||^2 = ||s_a-s||^2 + ||s_b-s||^2$, then $\Cov(Z(s_a), Z(s_b)|Z(s)) = 0$. Now $(Z(s_a), Z(s_b))$ follows a bivariate Gaussian distribution so it follows that $Z(s_a)$ and $Z(s_b)$ is independent conditional on $Z(s_5)$. When $s_a = s\pm e_{d_1}$ and $s_b = s\pm e_{d_2}$, where $d_1$ and $d_2$ denote different lattice directions, $||s_a-s_b||^2 = ||e_{d_1} \pm e_{d_2}||^2$ which equals $||s_a-s||^2 + ||s_b-s||^2 = ||e_{d_1}||^2 + ||e_{d_2}||^2$ and so the result follows. 
+where $\rho$ is the correlation between two adjacent voxels and $||\cdot||$ denotes the Euclidean norm. Thus, if $||s_a-s_b||^2 = ||s_a-s||^2 + ||s_b-s||^2$, then $\Cov(Z(s_a), Z(s_b)|Z(s)) = 0$. Now $(Z(s_a), Z(s_b))$ follows a bivariate Gaussian distribution so it follows that $Z(s_a)$ and $Z(s_b)$ is independent conditional on $Z(s_5)$. Taking $s_a = s\pm e_{d_1}$ and $s_b = s\pm e_{d_2}$, where $d_1$ and $d_2$ denote different lattice directions, $||s_a-s_b||^2 = ||e_{d_1} \pm e_{d_2}||^2$ which equals $||s_a-s||^2 + ||s_b-s||^2 = ||e_{d_1}||^2 + ||e_{d_2}||^2$ and so the result follows. 
 \end{proof}
 
 \subsection{Theoretical derivation of the probability density function of ADLM method\label{appendix.a2}}
-\begin{Proposition}
-Under the condition of \ref{prop1}. For each $s \in S$ assume that $\mathcal{N}_{PC}(s)$ is the partially connected neighbourhood defined in (\ref{partial}). Then 
+\nt{In the result below we derive a closed form for peak height distribution for the ADLM approach, recalling that $\mathcal{N}_{PC}$ is the partially connected neighbourhood and defining $Q(\rho_d,z)$ as in \eqref{sdfsdf}.}
+\begin{Proposition}\label{prop2}
+\nt{Under the conditions of Proposition \ref{prop1}, given $s \in \mathcal{L}$ such that $\mathcal{N}_{PC}(s) \subseteq \mathcal{L}$, for all $u \in \mathbb{R}$ we have}
 \begin{align*}
     P [Z(s) > u|Z(t) < Z(s), \forall t \in \mathcal{N}_{PC}(s)] = \frac{\int_u^\infty\left(\prod_{d=1}^DQ(\rho_d,z)(z)\right)\phi(z)dz}{\int_{-\infty}^\infty\left(\prod_{d=1}^DQ(\rho_d,z)(z)\right)\phi(z)dz}
 \end{align*}
+\nt{and in particular
+\begin{align*}
+	f_{\text{DLM}} = \frac{\prod_{d=1}^DQ(\rho_d,z)\phi(z)}{\int_{-\infty}^\infty\bigg(\prod_{d=1}^DQ(\rho_d,z)\bigg)\phi(z)dz}.
+\end{align*}}
 \end{Proposition}
 
 \begin{proof}
@@ -655,24 +660,18 @@ P\left[\{Z(s) > u\}\cap_{t\in\mathcal{N}_{PC}(s)}\{Z(t) < Z(s)\}\right]= \int_u^
 
 By Bayes Rule,
 \begin{align*}
-P [Z(s) > u|Z(t) < Z(s), \forall t \in \mathcal{N}_{PC}(s)] &= \frac{P[\{Z(s)> u\} \cap \{Z(t) < Z(s), \forall t \in \mathcal{N}_{PC}(s)\}]}{P[Z(t) < Z(s), \forall t \in \mathcal{N}_{PC}(s)]} \\&= \frac{\int_{u}^{\infty}P\big[(Z(t)<z, \forall t \in\mathcal{N}_{PC}(s)|Z(x)=z)\big]\phi(z)dz}{\int_{-\infty}^{\infty}P\big[(Z(t)<z, \forall t\in\mathcal{N}_{PC}(s)|Z(x)=z)\big]\phi(z)dz} \\&=\frac{\int_u^\infty\left(\prod_{d=1}^DQ(\rho_d,z)(z)\right)\phi(z)dz}{\int_{-\infty}^\infty\left(\prod_{d=1}^DQ(\rho_d,z)(z)\right)\phi(z)dz}.
+P [Z(s) > u|Z(t) < Z(s), \forall t \in \mathcal{N}_{PC}(s)] &= \frac{P[\{Z(s)> u\} \cap \{Z(t) < Z(s), \forall t \in \mathcal{N}_{PC}(s)\}]}{P[Z(t) < Z(s), \forall t \in \mathcal{N}_{PC}(s)]} \\&= \frac{\int_{u}^{\infty}P\big[(Z(t)<z, \forall t \in\mathcal{N}_{PC}(s)|Z(x)=z)\big]\phi(z)dz}{\int_{-\infty}^{\infty}P\big[(Z(t)<z, \forall t\in\mathcal{N}_{PC}(s)|Z(x)=z)\big]\phi(z)dz} \\&=\frac{\int_u^\infty\left(\prod_{d=1}^DQ(\rho_d,z)\right)\phi(z)dz}{\int_{-\infty}^\infty\left(\prod_{d=1}^DQ(\rho_d,z)\right)\phi(z)dz}.
 \end{align*}
-
+\nt{The result for the peak height density follows accordingly.}
 \end{proof}
-
-Thus, the peak height density is 
-\begin{align*}
-f_{\text{DLM}} = \frac{\prod_{d=1}^DQ(\rho_d,z)\phi(z)}{\int_{-\infty}^\infty\bigg(\prod_{d=1}^DQ(\rho_d,z)\bigg)\phi(z)dz}.
-\end{align*}
-
-Follow the proof from \cite{taylor2007maxima}, 
-\begin{align*}
-Q(\rho_d, z) = 1 - 2\Phi(h_dz^+) + \frac{1}{\pi}\int_{0}^{\alpha_d}\exp(-\frac{1}{2}h^2_dz^2/\sin^2\theta)d\theta. \label{eqna1}
-\end{align*}
-where
-\begin{align*}
-h_d = \sqrt{\frac{1-\rho_d}{1+\rho_d}}, \alpha_d = \sin^{-1}\left(\sqrt{(1-\rho_d^2)/2}\right), z^+ = \max(z,0).
-\end{align*}
+%where for reference, 
+%\begin{align*}
+%Q(\rho_d, z) = 1 - 2\Phi(h_dz^+) + \frac{1}{\pi}\int_{0}^{\alpha_d}\exp(-\frac{1}{2}h^2_dz^2/\sin^2\theta)d\theta. \label{eqna1}
+%\end{align*}
+%
+%\begin{align*}
+%h_d = \sqrt{\frac{1-\rho_d}{1+\rho_d}}, \alpha_d = \sin^{-1}\left(\sqrt{(1-\rho_d^2)/2}\right), z^+ = \max(z,0).
+%\end{align*}
 
 \begin{comment}
 \subsection{Deriving $Q(\rho_d,z)$}
@@ -743,20 +742,18 @@ at this extreme case.
 
 \section{The neighbourhood covariance matrix in the fully connected setting\label{appendix.dd}}
 \subsection{Theoretical derivation of the neighbourhood covariance for the integral convolution field}\label{appendix.B.1}
-To prove (\ref{eqn2.5}), it suffices to establish following claim:
-
-
+\nt{Before proving the result we need to first establish some notation. Given $r \in \mathcal{L}$, we first define an indexing of $\mathcal{N}_{FC}(r)$. We index the elements of the neighbourhood with vectors taking values in $\lbrace0, 1, 2\rbrace^D$. Under this indexing $r$ is assigned to $1_D$ (the $D$-dimensional vector of 1s) and $r + \sum_{i = 1}^D a_i e_i$ (for $a_i \in \lbrace-1,0,1\rbrace$) is assigned to the vector $1_D + \sum_{i = 1}^D a_i e_i$. To help understand this indexing in practice, a 2D example of this is as follows.
+\begin{align*}
+	\begin{matrix}
+		(0,0) & (0,1) & (0,2)\\
+		(1,0) & (1,1) & (1,2)\\
+		(2,0) & (2,1) & (2,2).
+	\end{matrix}
+\end{align*}
+We are now ready to state and prove our result.}
 \begin{theorem}\label{thm:thm}
-	Let $Z$ be a $D$ dimensional isotropic Gaussian random field on a discrete lattice $S$ with mean zero and unit variance. Assume that $Z$ is derived by integrating continuous white noise against a Gaussian kernel. Let $s_0, t_0 \in S$, we first define a special indexing of $\mathcal{N}_{FC}(s_0)$ and $\mathcal{N}_{FC}(t_0)$, the elements of the fully connected neighbourhood of $s_0$ and $t_0$ defined in (\ref{connectivity}). We index the neighbours in the order of $0,1,2$ in each direction. A 2D example of $\mathcal{N}_{FC}(s_0)$ for $s_0 = (1,1)$ is given as 
-	\begin{align*}
-		\begin{matrix}
-			(0,0) & (0,1) & (0,2)\\
-			(1,0) & (1,1) & (1,2)\\
-			(2,0) & (2,1) & (2,2).
-		\end{matrix}
-	\end{align*}
-	Let $s = (s_1, \dots, s_D)^\top$ and $t = (t_1, \dots, t_D)^\top$ be the vector that is one element inside of $\mathcal{N}_{FC}(s_0)$ and $\mathcal{N}_{FC}(t_0)$. Then
-	\begin{align}%\label{eqn.a3}
+	\nt{Let $Z$ be a $D$-dimensional isotropic Gaussian random field on a discrete lattice $\mathcal{L}$ with mean zero and unit variance. Assume that $Z$ is derived by integrating continuous white noise against a Gaussian kernel. Given $r \in \mathcal{L}$ suppose that $s, t$ are two elements of $\mathcal{N}_{FC}(r)$. And write these elements as $s = (s_1, \dots, s_D)$ and $t = (t_1, \dots, t_D)$ under the indexing system defined above.} Then
+	\begin{align}\label{eqn234}
 		\mathrm{Cov}(Z(s),Z(t)) = \left[A\otimes A \otimes... \otimes A\right]_{m,n},
 	\end{align}
 	where
@@ -777,13 +774,12 @@ and hence
 \begin{align*}
 \prod_{i=1}^D A_{s_it_i} = \rho^{\sum_{i=1}^D||s_i-t_i||^2} = \rho^{||s-t||^2}.
 \end{align*}
-As such both sides of (\ref{eqn.a3}) match and the result follows.
-
-This proof relies on a special indexing of $\mathbf{Z}$. However, this is in practice not a restriction as a re-indexing of $\mathbf{Z}$ can be treated as a linear transformation, i.e. $\mathbf{Z} = T \mathbf{Z}_o$, where $\mathbf{Z}_o$ is the vector with the special indexing. In that case $\Sigma$ then can be calculated by
-\begin{align*}
-    \Sigma = T \mathrm{Cov}(\mathbf{Z}_o) T^\top.
-\end{align*}
+As such both sides of (\ref{eqn234}) match and the result follows.
 \end{proof}
+This proof relies on a special indexing of $\mathbf{Z}$. However, this is in practice not a restriction as a re-indexing of $\mathbf{Z}$ can be treated as a linear transformation, i.e. $\mathbf{Z} = T \mathbf{Z}_o$, where $\mathbf{Z}_o$ is the vector with the special indexing. In that case $\Sigma$ then can be calculated as
+\begin{align*}
+	\Sigma = T \mathrm{Cov}(\mathbf{Z}_o) T^\top.
+\end{align*}
 
 \subsection{Neighbourhood covariance matrix for a 3D stationary Gaussian random field}\label{SS:cov}
 Figure \ref{fig17} shows the theoretical covariance function for a 3D stationary field. The construction and indexing of this $27 \times 27$ matrix follow the logic from Section \ref{appendix.B.1}. The numbers $r0,r1,...,r61$ denote all $62$ distinct values of covariance between two voxels. We use the same color to denote all $3\times 3$ matrices with the same values. One useful conclusion from this figure is this covariance matrix is a block Toeplitz matrix with $9$ blocks, and each block is still a block Toeplitz matrix with $9$ sub-blocks. In addition, each sub-block is a Toeplitz matrix. 
@@ -791,12 +787,12 @@ Figure \ref{fig17} shows the theoretical covariance function for a 3D stationary
 \begin{figure}[!htp]
 \centering
 \includegraphics[width = 8cm]{figure/covariance function_3D.png}
-\caption{The theoretical covariance function for a 3D stationary field.\label{fig17}}
+\caption{The theoretical \nt{neighbourhood covariance matrix} for a 3D stationary field.\label{fig17}}
 \end{figure}
 
-\section{Introduction to the $pp$ plot\label{appendix.d}}
+\section{Formally defining the $pp$ plot\label{appendix.d}}
 
-The $pp$ plots are used throughout Section \ref{sec3} and \ref{sec4}. In this section, we will formally define this $pp$ plot. $pp$ plots are used to compare the peak $p$-values computed using the ADLM, MCDLM and continuous methods we discussed in Section \ref{sec2} to the reference tail probability of the true peak height distribution, i.e. the reference $p$-value. We obtain the latter from simulation. To do so, first we generate $N$ i.i.d. random fields as described in each setting in Section \ref{sec3}. Let $n$ be the number of obtained local maxima across all fields, where the local maxima are selected based on the criteria that their height values are larger than all their neighbours in the specified neighbourhood (we will consider both the fully connected and partially connected neighbourhoods).  Let $g_1, \dots, g_n$ be the heights of the recorded local maxima. For each peak this allows us to compute an estimation of the reference $p$-value as
+The $pp$ plots are used throughout Section \ref{sec3} and \ref{sec4}. \nt{In this section, we will define these plots formally. To do so we first define the reference $p$-value, which we obtain via simulation. To do so, we generate $N$ i.i.d. random fields as described in each setting in Section \ref{sec3}.} Let $n$ be the number of obtained local maxima across all fields, where the local maxima are selected based on the criteria that their height values are larger than all their neighbours in the specified neighbourhood (we will consider both the fully connected and partially connected neighbourhoods).  Let $g_1, \dots, g_n$ be the heights of the recorded local maxima. For each peak this allows us to compute a reference $p$-value as
 \begin{align}
     p_i = \frac{1}{n} \sum_{j = 1}^n \mathbbm{1} [ g_j > g_i],\quad 1 \leq i \leq n,  \label{eqn3.2}
 \end{align}
@@ -832,14 +828,14 @@ Thus, when $p$ is from the true distribution and $n$ is large enough, we expect 
 \centering
 \includegraphics[trim=80 5 80 5, clip,width=0.3\textwidth]{figure/Armin_Fabian_method.jpg}
 \includegraphics[trim=80 5 80 5, clip,width=0.3\textwidth]{figure/new_method.jpg}
-\caption{Comparison of two plotting mechanism using the height distribution generated from 2D isotropic Gaussian field with spatial correlation $\rho = 0.01$. Left is from the plotting mechanism in \cite{schwartzman2019peak} and right is from the plotting mechanism in this paper \label{fig18}}.
+\caption{Comparison of the two considered plotting mechanisms obtained using the height distribution generated from 2D isotropic Gaussian field with spatial correlation $\rho = 0.01$. Left is from the plotting mechanism in \cite{schwartzman2019peak} and right is from the plotting mechanism used in this paper. \nt{As can be seen from the plots they are essentially identical.}\label{fig18}}
 \end{figure}
 
 \section{Additional results}
 \label{appendix.e}
 \subsection{Partial connectivity case}
 \label{appendix.d1}
-\nt{In Section \ref{sec2} we discussed some of the disadvantages of ADLM. In particular Proposition \ref{prop1} does not apply to diagonal neighbours and so ADLM cannot be used for peaks of the fully connected neighbourhood which is why it performed badly in Figure \ref{fig7}. However (when its assumptions hold) it can be used to provide inference  for the partially connected neighbourhood defined in (\eqref{eqn2.22}). We illustrate this in Figure \ref{fig8} with in the same simulation setting of Section \ref{sec3.1}.}
+\nt{In Section \ref{sec2} we discussed some of the disadvantages of ADLM. In particular Proposition \ref{prop1} does not apply to diagonal neighbours and so ADLM cannot be used for peaks of the fully connected neighbourhood which is why it performed badly in Figure \ref{fig7}. However (when its assumptions hold) it can be used to provide inference  for the partially connected neighbourhood defined in (\eqref{eqn2.22}). We illustrate this in Figure \ref{fig8} within the same simulation setting of Section \ref{sec3.1}.}
 
 \begin{figure}[!htp]
 \centering
@@ -885,12 +881,15 @@ The results are shown in Figure \ref{fig9}. They are similar to those of Figure 
 \includegraphics[trim=80 5 80 5, clip,width=0.3\textwidth]{figure/3D_rho0.5.jpg}
 %\includegraphics[trim=100 5 100 5, clip,width=0.24\textwidth]{3D_rho0.86_discrete_cov.jpg}
 \includegraphics[trim=80 5 80 5, clip,width=0.3\textwidth]{figure/3D_rho0.99.jpg}
-\caption{Comparison of peak height distribution calculated from different methods for 2D and 3D isotropic Gaussian field using  neighborhood covariance function in \eqref{eqn2.32}.\label{fig9}}
+\caption{Comparison of the peak height distribution calculated using different methods for 2D and 3D isotropic Gaussian field using  neighborhood covariance function in \eqref{eqn2.32}.\label{fig9}}
 \end{figure}
 
-\subsection{Applying the look-up table} 
+
+%In order to cut the time of running the simulation each time for a different height threshold $u$ and spatial correlation $\rho$, it is possible to use a look-up table to pre-record the simulation results for 
+
+\subsection{Calculating the look-up table} 
 \label{appendix.d3}
-Since our method is Monte Carlo based method, it is desirable to reduce the computation time in certain settings. We list the computation time under different scenarios in Appendix \ref{appendix.g}. In order to cut the time of running the simulation each time for a different height threshold $u$ and spatial correlation $\rho$, it is possible to use a look-up table to pre-record the simulation results for $10^5$ possible local maxima height values at different values of $\rho$ when the Gaussian random field is isotropic. To do so we vary $\rho$ form $0.01$ to $0.99$ with increments of $0.01$. In order to calculate a look up table we do the following.
+\nt{Since our method is Monte Carlo based, it is desirable to reduce the computation time where possible. To do so, under the isotropic setting described in Section \ref{SScorrfn} we pre-record the results of $10^5$ possible local maxima values at different values of $\rho$. We vary $\rho$ form $0.01$ to $0.99$ with increments of $0.01$ and calculate a look-up table as follows.}
 \begin{enumerate}
     \item Loop through the array of different values of $\rho$ and obtain $10^5$ local maxima for each $\rho$.
     \item From the union obtained in step 1, sample $10^5$ local maxima, which consist a set of local maxima, $u$, that we want to evaluate the CDF, $F(\cdot)$, at.
@@ -922,7 +921,7 @@ In doing so, we aim to reduce the violation of monotonicity across $u$ but also 
 \centering
 \includegraphics[width=6cm]{figure/presmooth_3D.jpg}
 \includegraphics[width=6cm]{figure/Aftersmooth_3D.jpg}
-\caption{This figure shows $F(u;\rho)$ of selected 50 samples across $\rho$ from pre-smooth table (left) and after-smooth table (right). Same color is used for the same sample before and after-smoothing.\label{fig4}}
+\caption{This figure shows $F(u;\rho)$ of selected 50 samples across $\rho$ from pre-smooth table (left) and after-smooth table (right). The same color is used for the same sample before and after-smoothing.\label{fig4}}
 \end{figure}
 
 \begin{figure}[!htp]
@@ -930,12 +929,12 @@ In doing so, we aim to reduce the violation of monotonicity across $u$ but also 
 \includegraphics[width=5cm]{figure/3D_cubic_10.jpg}
 \includegraphics[width=5cm]{figure/3D_cubic_50000.jpg}
 \includegraphics[width=5cm]{figure/3D_cubic_99990.jpg}
-\caption{From left to right are the 10, 50000 and 99990 column of the pre-smooth table (red) and after-smooth table (blue). \label{fig5}}
+\caption{From left to right are the 10, 50000 and 99990 columns of the pre-smooth table (red) and after-smooth table (blue). \label{fig5}}
 \end{figure}
 
 In Figure \ref{fig4}, we select 50 columns of both pre-smooth and after-smooth look-up table generated from 3D Gaussian random field and plot the CDF across different $\rho$ values. Different samples selected within one look-up table are denoted by different colors, while same color means same sample between two tables. The pre-smooth plot shows that the look-up table we generated is very noisy across $\rho$, especially at some large values of $\rho$. This will cause big problems in computing $p$-values for different values of $\rho$. For example, if two are interested in calculating the $p$-values for a $\rho$ close to 1, a slightly difference in picking the $\rho$ will bring a significant change in $p$-values, and such ambiguity could finally result in an inconsistent interpretation of the scientific findings. From the after-smooth plot, we observe that the look-up table is smooth enough to provide consistent results. 
 
-In addition, we explore to what extent the smoothing works in figure \ref{fig5}. In this figure, we select three columns of both pre-smooth table and after-smooth table and then compare. The $u$ that we select are -0.401, 1.906 and 4.57, which are in both ends and middle of the support. From these three plots, the noise before the smoothing is obvious, but the cubic spline smoothing fits the curve perfectly, in the sense that it preserves the general shape of the curve yet removes the noise.
+In addition, we explore to what extent the smoothing works in Figure \ref{fig5}. In this figure, we select three columns of both pre-smooth table and after-smooth table and then compare. The $u$ that we select are -0.401, 1.906 and 4.57, which are in both ends and middle of the support. From these three plots, the noise before the smoothing is obvious, but the cubic spline smoothing fits the curve perfectly, in the sense that it preserves the general shape of the curve yet removes the noise.
 
 \begin{comment}
 Figure \ref{fig6} shows selected 10 rows of both pre-smooth and after-smooth look-up tables generated from 3D Gaussian random field in plots of CDF across different $u$ values. From the comparison between two plots, the smoothing across $u$ has the fit that is hard to detect across the whole range of $u$. However, if we zoom in to a region of $u$, we can still distinguish between smoothing and not. In general, the plot shows that the look-up table after smoothing is good to use for interpolation purpose.
@@ -970,7 +969,7 @@ Figure \ref{fig6} shows selected 10 rows of both pre-smooth and after-smooth loo
 \end{comment}
 
 \subsection{Applying Gaussianization transformation of the $t$-fields}\label{SS:gauss}
-As discussed in Section \ref{sec3.2}, to improve the computation efficiency for the height distribution of peaks of $t$-fields, we consider using Gaussianization transformation of the $t$-fields. In this section we perform the same simulations as in Section \ref{sec3.2} but the simulated $t$-fields were Gaussianized by \eqref{eqn.t2Gauss} and compared with the MCDLM for Gaussian field and continuous RFT approach. 
+As discussed in Section \ref{sec3.2}, to improve the computation efficiency for the height distribution of peaks of $t$-fields, we consider using Gaussianization transformation of the $t$-fields. In this section we perform the same simulations as in Section \ref{sec3.2} but the simulated $t$-fields were Gaussianized \nt{as in \eqref{eqn.t2Gauss} and peak height distributions were obtained using MCDLM and continuous RFT after the transformation.}
 
 The results are shown in Figure \ref{fig.t2gauss2D} (2D) and Figure \ref{fig.t2gauss3D} (3D). MCDLM works well when degrees of freedom is large and $\rho$ is small. At high smoothness, MCDLM and continuous RFT work similarly. They are only correct when degrees of freedom is large since in this case the $t$-fields can approximate Gaussian fields.
 
@@ -996,7 +995,7 @@ The results are shown in Figure \ref{fig.t2gauss2D} (2D) and Figure \ref{fig.t2g
 \includegraphics[trim=70 5 100 5, clip,width=0.3\textwidth]{figure/2D_nu200_rho0.01_gauss.jpg}
 \includegraphics[trim=70 5 100 5, clip,width=0.3\textwidth]{figure/2D_nu200_rho0.5_gauss.jpg}
 \includegraphics[trim=70 5 100 5, clip,width=0.3\textwidth]{figure/2D_nu200_rho0.99_gauss.jpg}
-\caption{Comparison methods for calculating the peak height distribution of a Gaussianized 2D $t$-field with $\nu$ degrees of freedom. \label{fig.t2gauss2D}}
+\caption{Comparison of methods for calculating the peak height distribution of a Gaussianized 2D $t$-field with $\nu$ degrees of freedom. \label{fig.t2gauss2D}}
 \end{figure}
 
 \begin{figure}[!htp]
@@ -1021,12 +1020,11 @@ The results are shown in Figure \ref{fig.t2gauss2D} (2D) and Figure \ref{fig.t2g
 \includegraphics[trim=70 5 100 5, clip,width=0.3\textwidth]{figure/3D_nu200_rho0.01_gauss.jpg}
 \includegraphics[trim=70 5 100 5, clip,width=0.3\textwidth]{figure/3D_nu200_rho0.5_gauss.jpg}
 \includegraphics[trim=70 5 100 5, clip,width=0.3\textwidth]{figure/3D_nu200_rho0.99_gauss.jpg}
-\caption{Comparison methods for calculating the peak height distribution of a Gaussianized 3D $t$-field with $\nu$ degrees of freedom.\label{fig.t2gauss3D}}
+\caption{Comparison of methods for calculating the peak height distribution of a Gaussianized 3D $t$-field with $\nu$ degrees of freedom.\label{fig.t2gauss3D}}
 \end{figure}
 
 \subsection{Additional simulation results for MCDLM based on estimated neighborhood covariance \label{appendix.d5}}
-In Section \ref{sec4.4} we discuss that the performance of MCDLM is worsen as $\rho$ increases to $0.99$. Since we observe when $\rho = 0.5$ both 2D and 3D have good performance, we consider exploring 3 more scenarios in between, $\rho = 0.9, 0.93, 0.95$. In Figure \ref{fig.appendix.d5}, when $\rho < 0.95$, or FWHM $<5.2$, MCDLM with estimated covariance works well for both 2D and 3D cases with enough number of random fields to estimate the covariance function (nsim $\geq 50$). By comparing the neighborhood covariance matrices \eqref{cov.theory} (theoretical covariance) and \eqref{cov.empirical} (estimated covariance) for $\rho = 0.99$ in 2D case, the estimation is very close to the true covariance. However, the covariance matrix in this case is nearly singular, which causes problems when applied to our MCDLM method.   
-
+In Section \ref{sec4.4} we observed that the performance of MCDLM with the estimated covariance worsened at very high values of $\rho$. Here we consider additional values in order to better understand the performance in practice in particular we consider $\rho = 0.9, 0.93, 0.95$. In Figure \ref{fig.appendix.d5}, when $\rho < 0.95$, or FWHM $<5.2$, MCDLM with estimated covariance works well for both 2D and 3D cases given sufficiently many random fields available to estimate the covariance function (with nsim $\geq 50$ sufficing in most cases). By comparing the neighborhood covariance matrices \eqref{cov.theory} (theoretical covariance) and \eqref{cov.empirical} (estimated covariance) for $\rho = 0.99$ shown below in 2D, the estimate is very close to the true covariance. However, the covariance matrix in this case is nearly singular, which causes problems when simulating using Algorithm \ref{alg1}. 
 \begin{equation}
 \label{cov.theory}
 \begin{bmatrix}
@@ -1076,17 +1074,17 @@ In Section \ref{sec4.4} we discuss that the performance of MCDLM is worsen as $\
 \includegraphics[trim=80 5 80 5, clip,width=0.3\textwidth]{figure/3D_rho1_0.93_rho2_0.93.jpg}
 %\includegraphics[trim=100 5 100 5, clip,width=0.24\textwidth]{3D_rho0.86_discrete_cov.jpg}
 \includegraphics[trim=80 5 80 5, clip,width=0.3\textwidth]{figure/3D_rho1_0.95_rho2_0.95.jpg}
-\caption{Comparison of the peak height distribution calculated from using MCDLM with different neighborhood covariance for 2D and 3D isotropic Gaussian fields. The covariance functions used here are theoretical covariance function (Tcf) and empirically estimated covariance function (Ecf). The number of random fields used to estimate the covariance function is denoted using nsim. From left to right: $\rho = 0.9, 0.93, 0.95$. \label{fig.appendix.d5}}
+\caption{Comparison of the peak height distribution obtained using MCDLM with different estimated neighborhood covariance for 2D and 3D isotropic Gaussian fields. The covariance functions used here are theoretical covariance function (Tcf) and empirically estimated covariance function (Ecf). The number of random fields used to estimate the covariance function is denoted using nsim. From left to right: $\rho = 0.9, 0.93, 0.95$. \label{fig.appendix.d5}}
 \end{figure}
 
 \clearpage
 \section{Computation time table\label{appendix.g}}
-The simulation times under different scenarios are shown in Table \ref{tab1}. In the case of 2D Gaussian fields, applying MCDLM with full or partial connectivity is comparable in terms of running time, but the look up table is much faster (between $5$ and $50$ times faster), getting more efficient as the field correlation increases. In the case of 3D Gaussian fields, running times are $5$ to $10$ times larger than in 2D. However, the look up table method is just as fast as in 2D, making its use very worthwhile from a computational standpoint. In the case of 2D $t$-field, the running times increase about 10 to 15 times from degrees of freedom equals $20$ to $200$. In the case of 3D $t$-field, the running times are $5$ to $10$ times larger than in 2D, making the code stop at a pre-specified threshold when degrees of freedom increases to $200$. The MCDLM with empirical covariance function has similar running times to MCDLM with theoretical covariance function, in the case of 2D Gaussian field with the number of fields to estimate the covariance small (200 or 1000). In 3D case, when the number of fields to estimate the covariance is 200, the running times are 2 times larger than the case of applying the theoretical covariance function. When the number of fields increases to 1000, the time to estimate the covariance further increases, leading to the running times 4-8 times larger than the case of applying the theoretical covariance function.
+The simulation times under different scenarios are shown in Table \ref{tab1}. In the case of 2D Gaussian fields, applying MCDLM with full or partial connectivity is comparable in terms of running time, but the look up table is much faster (between $5$ and $50$ times faster), becoming more efficient as the correlation increases. In the case of 3D Gaussian fields, running times are $5$ to $10$ times larger than in 2D. However, the look up table method is just as fast as in 2D, making its use very worthwhile from a computational standpoint. In the case of 2D $t$-field, the running times increase about 10 to 15 times from degrees of freedom equals $20$ to $200$. In the case of 3D $t$-field, the running times are $5$ to $10$ times larger than in 2D, making the code stop at a pre-specified threshold when degrees of freedom increases to $200$. The MCDLM with empirical covariance function has similar running times to MCDLM with theoretical covariance function, in the case of 2D Gaussian field with the number of fields to estimate the covariance small (200 or 1000). In 3D case, when the number of fields to estimate the covariance is 200, the running times are 2 times larger than the case of applying the theoretical covariance function. When the number of fields increases to 1000, the time to estimate the covariance further increases, leading to the running times 4-8 times larger than \nt{when using} the theoretical covariance function.
 
 \begin{table}[!htp]
 \small
 \begin{center}
-\caption{Running time (in seconds) of our MCDLM method under different scenarios. For $\rho = 0.01$ and $\rho = 0.05$, the code is targeted to obtain at least $n = 1e6$ peak height values and for $\rho = 0.99$, $n = 2e5$ peak height values. In some extreme cases, the code stops at a pre-specified threshold with the number of instances generated recorded in parentheses.\label{tab1}}
+\caption{Running time (in seconds) of our MCDLM method under different scenarios. For $\rho = 0.01$ and $\rho = 0.05$,  $n = 1e6$ peak height values \nt{are simulated} and for $\rho = 0.99$, $n = 2e5$ peak height values. In some extreme cases, the code stops at a pre-specified threshold with the number of instances generated recorded in parentheses.\label{tab1}}
 \begin{tabular}{|l|l|l|l|}
 \hline & $\rho = 0.01$ ($n = 1e6$) & $\rho = 0.5$ ($n = 1e6$) & $\rho = 0.99$ ($n = 2e5$) \\ \hline
 \multicolumn{4}{|c|}{2D Gaussian field}                                                                                          \\ \hline
