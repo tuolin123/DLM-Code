@@ -1,3 +1,4 @@
+
 function discov = discrete_covariance_ellipsoid(nu, D)
 % Compute the correlation (covariance) function of the stationary field 
 % from convolving the white noise with elliptical Gaussian kernel on 
@@ -9,7 +10,7 @@ function discov = discrete_covariance_ellipsoid(nu, D)
 % D             the dimension of the stationary field, at least 2
 %--------------------------------------------------------------------------
 % OUTPUT
-% discov        a D^2*D^2 convariance matrix to be used in simulateLocMax_Discrete.m 
+% discov        a 3^D*3^D convariance matrix to be used in simulateLocMax_Discrete.m 
 %--------------------------------------------------------------------------
 % EXAMPLES
 % nu = [0.3 5];
